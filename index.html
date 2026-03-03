@@ -1,1 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Books PDF Love — Free PDF Books by Category</title>
+  <meta name="description" content="Books PDF Love: Browse PDF books category-wise. Clean, fast homepage with search & filters. Add new books easily." />
+  <meta name="keywords" content="Books PDF Love, PDF books, download books pdf, free books pdf, categories, ebook pdf" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#7C3AED" />
+  <link rel="canonical" href="https://www.bookspdf.love/" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Books PDF Love — PDF Books by Category" />
+  <meta property="og:description" content="Browse PDF books category-wise with search & filters. Add new books easily." />
+  <meta property="og:url" content="https://www.bookspdf.love/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Books PDF Love — PDF Books by Category" />
+  <meta name="twitter:description" content="Browse PDF books category-wise with search & filters. Add new books easily." />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Books PDF Love",
+    "url":"https://www.bookspdf.love/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.bookspdf.love/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#7C3AED;
+      --primary-dark:#6D28D9;
+      --primary-light:#F3E8FF;
+      --blue:#2563EB;
+      --blue-light:#EFF6FF;
+      --green:#059669;
+      --green-light:#ECFDF5;
+      --orange:#D97706;
+      --orange-light:#FFFBEB;
+      --red:#DC2626;
+      --red-light:#FEF2F2;
+
+      --bg:#F8FAFC;
+      --card:#FFFFFF;
+      --muted:#64748B;
+      --text:#0F172A;
+      --body:#334155;
+      --border:#E2E8F0;
+
+      --shadow-sm:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:0 10px 28px rgba(15,23,42,.10);
+      --shadow-lg:0 18px 50px rgba(15,23,42,.12);
+
+      --r-xs:10px;
+      --r-sm:14px;
+      --r-md:18px;
+      --r-lg:22px;
+      --r-xl:28px;
+
+      --font-display:'Poppins', 'Inter', sans-serif;
+      --font-body:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:var(--font-body);
+      background:var(--bg);
+      color:var(--body);
+      line-height:1.65;
+      overflow-x:hidden;
+      -webkit-text-size-adjust:100%;
+    }
+
+    a{color:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 18px}
+    .section{padding:86px 0}
+    section[id]{scroll-margin-top:86px}
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;right:0;
+      z-index:5000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(18px) saturate(150%);
+      border-bottom:1px solid var(--border);
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+    }
+    .header-inner{
+      height:68px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:14px;
+      max-width:1200px;margin:0 auto;padding:0 18px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      text-decoration:none;
+      min-width:220px;
+    }
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--blue));
+      box-shadow:var(--shadow-sm);
+      display:grid;place-items:center;
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .logo svg{width:22px;height:22px;fill:white}
+    .brand-txt{display:flex;flex-direction:column;line-height:1.05}
+    .brand-name{
+      font-family:var(--font-display);
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.4px;
+      font-size:1.03rem;
+      white-space:nowrap;
+    }
+    .brand-sub{
+      font-size:.66rem;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:800;
+      margin-top:2px;
+      white-space:nowrap;
+    }
+
+    nav{display:flex;align-items:center;gap:4px}
+    nav a{
+      text-decoration:none;
+      font-weight:700;
+      color:var(--muted);
+      font-size:.90rem;
+      padding:8px 12px;
+      border-radius:var(--r-xs);
+      transition:all .2s ease;
+      white-space:nowrap;
+    }
+    nav a:hover{background:var(--primary-light);color:var(--primary)}
+    .nav-btn{
+      margin-left:6px;
+      background:var(--primary);
+      color:#fff !important;
+      border-radius:9999px;
+      padding:9px 16px;
+      box-shadow:0 10px 26px rgba(124,58,237,.22);
+    }
+    .nav-btn:hover{background:var(--primary-dark)}
+    .ham{
+      display:none;
+      width:44px;height:44px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:var(--shadow-sm);
+    }
+    .ham span{
+      display:block;width:18px;height:2px;background:var(--text);
+      margin:5px auto;border-radius:3px;
+      transition:transform .25s ease, opacity .25s ease;
+    }
+    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(2){opacity:0}
+    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    .mobile{
+      position:fixed;top:68px;left:0;right:0;bottom:0;
+      background:#fff;
+      z-index:4900;
+      transform:translateX(110%);
+      transition:transform .26s cubic-bezier(.4,0,.2,1);
+      border-top:1px solid var(--border);
+      padding:14px;
+      overflow:auto;
+    }
+    .mobile.open{transform:translateX(0)}
+    .m-label{
+      font-size:.62rem;font-weight:900;
+      letter-spacing:2px;text-transform:uppercase;
+      color:#94A3B8;margin:14px 8px 8px;
+    }
+    .mobile a{
+      display:flex;align-items:center;gap:10px;
+      text-decoration:none;
+      padding:12px 12px;
+      border-radius:14px;
+      font-weight:800;
+      color:var(--body);
+      border:1px solid transparent;
+      margin-bottom:6px;
+    }
+    .mobile a:hover{background:var(--primary-light);border-color:#E9D5FF;color:var(--primary)}
+    .m-cta{
+      margin-top:10px;
+      justify-content:center;
+      border-radius:9999px !important;
+      background:var(--primary) !important;
+      color:#fff !important;
+      box-shadow:0 12px 30px rgba(124,58,237,.22);
+    }
+
+    @media (max-width: 980px){
+      nav{display:none}
+      .ham{display:block}
+      .brand{min-width:auto}
+    }
+
+    /* Hero */
+    .hero{
+      padding-top:106px;
+      padding-bottom:52px;
+      min-height:88vh;
+      display:flex;align-items:center;
+      background:
+        radial-gradient(1000px 450px at 15% 15%, rgba(124,58,237,.14), transparent 60%),
+        radial-gradient(900px 420px at 85% 70%, rgba(37,99,235,.12), transparent 60%),
+        linear-gradient(160deg, #F5F3FF 0%, #F8FAFC 52%, #FFFFFF 100%);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-dots{
+      position:absolute;inset:0;
+      background-image: radial-gradient(circle, rgba(124,58,237,.07) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:44px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 14px;border-radius:9999px;
+      background:rgba(124,58,237,.14);
+      border:1px solid rgba(124,58,237,.16);
+      color:var(--primary-dark);
+      font-weight:900;
+      letter-spacing:1.6px;
+      text-transform:uppercase;
+      font-size:.72rem;
+      margin-bottom:16px;
+      white-space:nowrap;
+    }
+    h1{
+      font-family:var(--font-display);
+      color:var(--text);
+      letter-spacing:-1px;
+      line-height:1.05;
+      font-size:clamp(2.2rem, 5.2vw, 3.9rem);
+      margin-bottom:10px;
+    }
+    .accent{color:var(--primary)}
+    .hero-p{
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.9;
+      max-width:680px;
+      margin-bottom:18px;
+    }
+    .hero-tools{
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-bottom:18px;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:7px 12px;
+      border-radius:9999px;
+      font-weight:800;
+      font-size:.78rem;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow-sm);
+      white-space:nowrap;
+    }
+    .pill.p{background:var(--primary-light);border-color:#E9D5FF;color:var(--primary)}
+    .pill.b{background:var(--blue-light);border-color:#DBEAFE;color:var(--blue)}
+    .pill.g{background:var(--green-light);border-color:#BBF7D0;color:var(--green)}
+    .pill.o{background:var(--orange-light);border-color:#FDE68A;color:var(--orange)}
+
+    .hero-cta{
+      display:flex;gap:12px;flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 22px;border-radius:9999px;
+      font-weight:900;text-decoration:none;border:0;cursor:pointer;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      white-space:nowrap;
+      max-width:100%;
+    }
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 14px 34px rgba(124,58,237,.24);
+    }
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .btn-ghost{
+      background:#fff;color:var(--text);
+      border:1.5px solid var(--border);
+      box-shadow:var(--shadow-sm);
+    }
+    .btn-ghost:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-2px)}
+    .hero-card{
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(226,232,240,.9);
+      border-radius:var(--r-xl);
+      box-shadow:var(--shadow-lg);
+      padding:22px;
+      backdrop-filter: blur(16px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;inset:-2px;
+      border-radius:var(--r-xl);
+      background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(37,99,235,.12));
+      z-index:-1;
+    }
+    .stat-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:6px;
+    }
+    .stat{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      box-shadow:var(--shadow-sm);
+    }
+    .stat b{
+      display:block;
+      font-family:var(--font-display);
+      color:var(--primary);
+      font-size:1.2rem;
+      letter-spacing:-.3px;
+      line-height:1.05;
+    }
+    .stat span{
+      display:block;
+      margin-top:4px;
+      color:#94A3B8;
+      font-weight:900;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      font-size:.64rem;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr;gap:26px;text-align:center}
+      .hero-cta{justify-content:center}
+      .hero-tools{justify-content:center}
+      .hero-card{max-width:560px;margin:0 auto}
+    }
+    @media (max-width: 520px){
+      .hero{min-height:auto;padding-bottom:44px}
+      .hero-cta{flex-direction:column}
+      .btn{width:100%}
+      .stat-grid{grid-template-columns:1fr}
+    }
+
+    /* Sticky category bar */
+    .catbar-wrap{
+      position:sticky;
+      top:68px;
+      z-index:2000;
+      background:rgba(248,250,252,.92);
+      backdrop-filter: blur(16px);
+      border-bottom:1px solid var(--border);
+    }
+    .catbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 0;
+      overflow:auto;
+      scrollbar-width:thin;
+    }
+    .chip{
+      flex:0 0 auto;
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 12px;
+      border-radius:9999px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow-sm);
+      font-weight:900;
+      font-size:.82rem;
+      text-decoration:none;
+      color:var(--body);
+      transition:all .2s ease;
+      white-space:nowrap;
+    }
+    .chip:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-1px)}
+    .chip.active{background:var(--primary);border-color:var(--primary);color:#fff}
+
+    /* Search / filter bar */
+    .tools{
+      padding:22px 0 0;
+    }
+    .tools-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr .7fr;
+      gap:12px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .field{
+      display:flex;align-items:center;gap:10px;
+      background:#fff;border:1px solid var(--border);
+      border-radius:9999px;
+      padding:12px 14px;
+      box-shadow:var(--shadow-sm);
+      min-height:46px;
+    }
+    .field svg{width:18px;height:18px;fill:#94A3B8;flex-shrink:0}
+    input[type="search"], select{
+      width:100%;
+      border:0;
+      outline:none;
+      font-family:var(--font-body);
+      font-weight:800;
+      color:var(--text);
+      background:transparent;
+      font-size:.95rem;
+    }
+    select{cursor:pointer}
+    .mini{
+      display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;
+    }
+    .mini button{
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:9999px;
+      padding:10px 14px;
+      cursor:pointer;
+      font-weight:900;
+      color:var(--body);
+      box-shadow:var(--shadow-sm);
+      transition:all .2s ease;
+    }
+    .mini button:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-1px)}
+    @media (max-width: 900px){
+      .tools-grid{grid-template-columns:1fr;gap:10px}
+      .mini{justify-content:stretch}
+      .mini button{width:100%}
+    }
+
+    /* Category sections & book cards */
+    .section-title{
+      font-family:var(--font-display);
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.6px;
+      line-height:1.15;
+      font-size:clamp(1.55rem, 3.8vw, 2.4rem);
+      margin-bottom:10px;
+      word-break:break-word;
+    }
+    .section-sub{
+      color:var(--muted);
+      max-width:850px;
+      font-size:1.02rem;
+      line-height:1.85;
+      margin-bottom:20px;
+    }
+    .cat-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:14px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+    .cat-meta{
+      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+      font-weight:900;
+      color:#94A3B8;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      font-size:.66rem;
+    }
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 12px;border-radius:9999px;
+      font-weight:900;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      font-size:.65rem;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+    .badge.p{background:var(--primary-light);color:var(--primary);border-color:#E9D5FF}
+    .badge.g{background:var(--green-light);color:var(--green);border-color:#BBF7D0}
+    .badge.b{background:var(--blue-light);color:var(--blue);border-color:#DBEAFE}
+    .badge.o{background:var(--orange-light);color:var(--orange);border-color:#FDE68A}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 1100px){ .grid{grid-template-columns: repeat(3, 1fr)} }
+    @media (max-width: 780px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 460px){ .grid{grid-template-columns: 1fr} }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--r-lg);
+      box-shadow:var(--shadow-sm);
+      overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-md);
+      border-color:#E9D5FF;
+    }
+    .cover{
+      position:relative;
+      aspect-ratio: 4/5;
+      background:linear-gradient(135deg, rgba(124,58,237,.10), rgba(37,99,235,.08));
+      border-bottom:1px solid var(--border);
+      display:grid;
+      place-items:center;
+      padding:12px;
+    }
+    .cover-inner{
+      width:100%;
+      height:100%;
+      border-radius:18px;
+      border:1px solid rgba(226,232,240,.9);
+      background:rgba(255,255,255,.75);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:10px;
+      padding:14px;
+      text-align:left;
+      box-shadow:0 18px 40px rgba(15,23,42,.08);
+    }
+    .cover-mark{
+      display:flex;align-items:center;gap:10px;
+      font-weight:900;
+      color:var(--text);
+      letter-spacing:-.3px;
+    }
+    .cover-mark svg{width:18px;height:18px;fill:var(--primary);flex-shrink:0}
+    .cover-title{
+      font-family:var(--font-display);
+      font-weight:900;
+      color:var(--text);
+      line-height:1.15;
+      font-size:1.05rem;
+      letter-spacing:-.5px;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .cover-author{
+      color:var(--muted);
+      font-weight:800;
+      font-size:.86rem;
+      display:-webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .body{
+      padding:14px 14px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+    .meta{
+      display:flex;gap:8px;flex-wrap:wrap;
+      align-items:center;
+    }
+    .tag{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:6px 10px;
+      border-radius:9999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-weight:900;
+      font-size:.70rem;
+      color:#475569;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .tag.ok{border-color:#BBF7D0;background:var(--green-light);color:var(--green)}
+    .tag.warn{border-color:#FDE68A;background:var(--orange-light);color:var(--orange)}
+    .desc{
+      color:var(--muted);
+      font-size:.90rem;
+      line-height:1.75;
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+      margin-top:2px;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:auto;
+    }
+    .a-btn{
+      flex:1;
+      text-align:center;
+      text-decoration:none;
+      font-weight:900;
+      border-radius:9999px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow-sm);
+      transition:all .2s ease;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .a-btn:hover{transform:translateY(-1px);border-color:#E9D5FF;color:var(--primary)}
+    .a-btn.primary{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+      box-shadow:0 14px 30px rgba(124,58,237,.18);
+    }
+    .a-btn.primary:hover{background:var(--primary-dark);color:#fff}
+
+    .empty{
+      padding:18px;
+      border-radius:var(--r-lg);
+      border:1px dashed #CBD5E1;
+      background:#fff;
+      color:#64748B;
+      font-weight:800;
+    }
+
+    /* How-to / disclaimer */
+    .info{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--r-xl);
+      box-shadow:var(--shadow-sm);
+      padding:22px;
+    }
+    .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .note{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--bg);
+      padding:14px;
+    }
+    .note h3{
+      font-family:var(--font-display);
+      color:var(--text);
+      font-weight:900;
+      letter-spacing:-.4px;
+      font-size:1.05rem;
+      margin-bottom:6px;
+    }
+    .note p{color:var(--muted);font-weight:600;font-size:.95rem;line-height:1.85}
+    @media (max-width: 860px){ .cols{grid-template-columns:1fr} }
+
+    /* Footer */
+    footer{
+      background:#0B1220;
+      color:rgba(255,255,255,.72);
+      padding:60px 0 30px;
+      margin-top:40px;
+    }
+    .fgrid{
+      display:grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap:22px;
+      margin-bottom:26px;
+    }
+    .fbrand p{color:rgba(255,255,255,.55);max-width:420px;margin-top:10px;line-height:1.9;font-size:.90rem}
+    .fcol h4{
+      font-size:.66rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:900;
+      color:rgba(255,255,255,.40);
+      margin-bottom:10px;
+    }
+    .fcol a{
+      display:block;
+      text-decoration:none;
+      color:rgba(255,255,255,.72);
+      font-weight:700;
+      margin-bottom:8px;
+      font-size:.92rem;
+    }
+    .fcol a:hover{color:#fff}
+    .fbottom{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.45);
+      font-size:.82rem;
+      font-weight:700;
+    }
+    @media (max-width: 860px){ .fgrid{grid-template-columns:1fr} }
+
+    /* Back to top */
+    #btt{
+      position:fixed;right:18px;bottom:18px;
+      width:46px;height:46px;border-radius:50%;
+      border:0;cursor:pointer;
+      background:var(--primary);
+      color:#fff;
+      font-weight:900;
+      box-shadow:0 16px 36px rgba(124,58,237,.25);
+      opacity:0;
+      transform:translateY(16px);
+      transition:opacity .25s ease, transform .25s ease, background .2s ease;
+      z-index:3000;
+    }
+    #btt.show{opacity:1;transform:translateY(0)}
+    #btt:hover{background:var(--primary-dark);transform:translateY(-2px)}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="https://www.bookspdf.love/" aria-label="Books PDF Love Home">
+      <div class="logo" aria-hidden="true">
+        <!-- Inline logo icon (no external images needed) -->
+        <svg viewBox="0 0 24 24" role="img" aria-label="Book Icon">
+          <path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v15.17A4.98 4.98 0 0 1 7 20h9V5a1 1 0 0 0-1-1H6z"/>
+        </svg>
+      </div>
+      <div class="brand-txt">
+        <span class="brand-name">Books PDF Love</span>
+        <span class="brand-sub">PDF Books · Categories · Fast Search</span>
+      </div>
+    </a>
+
+    <nav aria-label="Primary">
+      <a href="#categories">Categories</a>
+      <a href="#how">How it Works</a>
+      <a href="#disclaimer">Disclaimer</a>
+      <a class="nav-btn" href="#categories">Browse Books ↓</a>
+    </nav>
+
+    <button class="ham" id="ham" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
+  <div class="m-label">Navigation</div>
+  <a href="https://www.bookspdf.love/">🏠 Home</a>
+  <a href="#categories">📚 Categories</a>
+  <a href="#how">🧭 How it Works</a>
+  <a href="#disclaimer">⚠️ Disclaimer</a>
+  <a class="m-cta" href="#categories">Browse Books ↓</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-dots"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">📚 PDF Library · Category-wise</div>
+        <h1>
+          Welcome to <a class="accent" href="https://www.bookspdf.love/" style="text-decoration:none;">Books PDF Love</a>
+        </h1>
+        <p class="hero-p">
+          A clean, fast homepage that lists <strong>all PDF books by category</strong>.
+          Use search + filters to find books instantly, and later you can add new books by editing only one list in this file.
+        </p>
+
+        <div class="hero-tools" aria-label="Highlights">
+          <span class="pill p">⚡ Fast</span>
+          <span class="pill b">🔎 Search</span>
+          <span class="pill g">🧩 Easy to add books</span>
+          <span class="pill o">📂 Category-wise</span>
+        </div>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#categories">📚 Browse Categories</a>
+          <a class="btn btn-ghost" href="#how">How to Add Books →</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Site stats">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--font-display);font-weight:900;color:var(--text);letter-spacing:-.5px;font-size:1.25rem;">
+              Library Overview
+            </div>
+            <div style="color:var(--muted);font-weight:700;font-size:.92rem;margin-top:4px;line-height:1.6;">
+              Auto-updates when you add books in <code>BOOK_DATA</code>.
+            </div>
+          </div>
+          <span class="badge p">✅ Ready</span>
+        </div>
+
+        <div class="stat-grid" style="margin-top:14px;">
+          <div class="stat"><b id="statBooks">0</b><span>Total Books</span></div>
+          <div class="stat"><b id="statCats">0</b><span>Categories</span></div>
+          <div class="stat"><b id="statShown">0</b><span>Shown Now</span></div>
+          <div class="stat"><b>Single</b><span>Index File</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky categories bar -->
+<div class="catbar-wrap" id="catbarWrap">
+  <div class="container">
+    <div class="catbar" id="catbar" aria-label="Category quick navigation">
+      <!-- chips injected by JS -->
+    </div>
+  </div>
+</div>
+
+<section class="section" id="categories">
+  <div class="container">
+    <div class="tools" aria-label="Search and filters">
+      <div class="tools-grid">
+        <div class="field" title="Search by title, author, tags">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 1 5.29 14.01l4.35 4.35-1.41 1.41-4.35-4.35A8 8 0 0 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
+          <input id="q" type="search" placeholder="Search books (title, author, tags)..." autocomplete="off" />
+        </div>
+
+        <div class="field" title="Filter by category">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v2H3V5zm4 6h10v2H7v-2zm-2 6h14v2H5v-2z"/></svg>
+          <select id="categoryFilter" aria-label="Category filter">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+
+        <div class="mini">
+          <button id="clearBtn" type="button">✕ Clear</button>
+          <button id="expandBtn" type="button" title="Expand / collapse all categories">↕ Expand</button>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">All Books, <span class="accent">Category-wise</span></h2>
+    <p class="section-sub">
+      Everything on the homepage. Click a category chip to jump, or use search to filter instantly.
+    </p>
+
+    <div id="categoriesRoot">
+      <!-- category sections injected by JS -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" style="padding-top:30px;">
+  <div class="container">
+    <div class="info">
+      <h2 class="section-title">How to Add <span class="accent">More Books</span></h2>
+      <p class="section-sub" style="margin-bottom:0;">
+        Open this file and edit the <code>BOOK_DATA</code> array in the script below. Each book is one object.
+        The homepage builds itself (category chips, counts, grids, and filters).
+      </p>
+
+      <div class="cols">
+        <div class="note">
+          <h3>1) Add a Category</h3>
+          <p>
+            Add a new object like:
+            <br><code>{ id: "romance", name: "Romance", badge: "Hot", badgeStyle: "o", books: [] }</code>
+          </p>
+        </div>
+        <div class="note">
+          <h3>2) Add a Book</h3>
+          <p>
+            Add a book into <code>books: []</code>:
+            <br><code>{ title, author, year, pages, format, tags, detailsUrl, downloadUrl }</code>
+          </p>
+        </div>
+        <div class="note">
+          <h3>3) Details Page (Optional)</h3>
+          <p>
+            If you create per-book pages later, set <code>detailsUrl</code> to something like:
+            <br><code>/books/atomic-habits.html</code>
+          </p>
+        </div>
+        <div class="note">
+          <h3>4) Safe Linking Tip</h3>
+          <p>
+            If a download is external, keep <code>rel="noopener noreferrer"</code> (already included).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="disclaimer" style="padding-top:30px;">
+  <div class="container">
+    <div class="info" style="border-left:5px solid var(--orange);background:linear-gradient(135deg, rgba(217,119,6,.08), rgba(124,58,237,.06));">
+      <h2 class="section-title">Disclaimer</h2>
+      <p class="section-sub" style="margin-bottom:0;">
+        This template is for organizing links to PDF books. You are responsible for ensuring you have the rights/permission
+        to distribute or link to any content. Remove any content upon valid request.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="logo" aria-hidden="true" style="width:38px;height:38px;border-radius:12px;">
+            <svg viewBox="0 0 24 24"><path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3z"/></svg>
+          </div>
+          <div>
+            <div style="font-family:var(--font-display);font-weight:900;color:#fff;letter-spacing:-.4px;">Books PDF Love</div>
+            <div style="color:rgba(255,255,255,.55);font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">
+              PDF Books · Category-wise
+            </div>
+          </div>
+        </div>
+        <p>
+          A clean homepage template for listing books by category with search & filters.
+          Built as a single HTML file so you can host it anywhere.
+        </p>
+      </div>
+
+      <div class="fcol">
+        <h4>Quick Links</h4>
+        <a href="#top">Back to Top</a>
+        <a href="#categories">Categories</a>
+        <a href="#how">How it Works</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </div>
+
+      <div class="fcol">
+        <h4>Website</h4>
+        <a href="https://www.bookspdf.love/">Home</a>
+        <a href="#categories">Browse Books</a>
+      </div>
+    </div>
+
+    <div class="fbottom">
+      <div>© <span id="year"></span> Books PDF Love — https://www.bookspdf.love/</div>
+      <div>Built for speed • Mobile-friendly • Easy to extend</div>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top">↑</button>
+
+<script>
+/* ===========================
+   BOOK DATA (EDIT THIS ONLY)
+   =========================== */
+const BOOK_DATA = [
+  {
+    id: "self-help",
+    name: "Self-Help",
+    badge: "Popular",
+    badgeStyle: "p",
+    books: [
+      {
+        title: "Atomic Habits",
+        author: "James Clear",
+        year: "2018",
+        pages: "320",
+        format: "PDF",
+        tags: ["habits", "productivity", "mindset"],
+        detailsUrl: "#",
+        downloadUrl: "#",
+        note: "Replace URLs with your own."
+      },
+      {
+        title: "The Power of Now",
+        author: "Eckhart Tolle",
+        year: "1997",
+        pages: "236",
+        format: "PDF",
+        tags: ["mindfulness", "spiritual"],
+        detailsUrl: "#",
+        downloadUrl: "#",
+        note: "Replace URLs with your own."
+      }
+    ]
+  },
+  {
+    id: "programming",
+    name: "Programming",
+    badge: "Tech",
+    badgeStyle: "b",
+    books: [
+      {
+        title: "Clean Code",
+        author: "Robert C. Martin",
+        year: "2008",
+        pages: "464",
+        format: "PDF",
+        tags: ["software", "best-practices", "engineering"],
+        detailsUrl: "#",
+        downloadUrl: "#",
+        note: "Replace URLs with your own."
+      },
+      {
+        title: "You Don't Know JS (Yet)",
+        author: "Kyle Simpson",
+        year: "2020",
+        pages: "—",
+        format: "PDF",
+        tags: ["javascript", "frontend"],
+        detailsUrl: "#",
+        downloadUrl: "#",
+        note: "Replace URLs with your own."
+      }
+    ]
+  },
+  {
+    id: "novels",
+    name: "Novels",
+    badge: "New",
+    badgeStyle: "g",
+    books: [
+      {
+        title: "Example Novel Title",
+        author: "Author Name",
+        year: "—",
+        pages: "—",
+        format: "PDF",
+        tags: ["fiction"],
+        detailsUrl: "#",
+        downloadUrl: "#",
+        note: "Replace URLs with your own."
+      }
+    ]
+  }
+];
+
+/* ===========================
+   RENDER + FILTER LOGIC
+   =========================== */
+const $ = (id) => document.getElementById(id);
+
+const categoriesRoot = $("categoriesRoot");
+const catbar = $("catbar");
+const q = $("q");
+const categoryFilter = $("categoryFilter");
+const clearBtn = $("clearBtn");
+const expandBtn = $("expandBtn");
+
+const statBooks = $("statBooks");
+const statCats = $("statCats");
+const statShown = $("statShown");
+
+let isExpanded = true;
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, s => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[s]));
+}
+
+function bookMatches(book, query){
+  if(!query) return true;
+  const hay = [
+    book.title, book.author, book.year, book.format,
+    ...(book.tags || [])
+  ].join(" ").toLowerCase();
+  return hay.includes(query.toLowerCase());
+}
+
+function render(){
+  const query = q.value.trim();
+  const cat = categoryFilter.value;
+
+  // counts
+  const totalCats = BOOK_DATA.length;
+  const totalBooks = BOOK_DATA.reduce((acc,c)=>acc + (c.books?.length||0), 0);
+
+  statCats.textContent = totalCats;
+  statBooks.textContent = totalBooks;
+
+  // category chips
+  catbar.innerHTML = "";
+  const allChip = document.createElement("a");
+  allChip.className = "chip" + (cat === "all" ? " active" : "");
+  allChip.href = "#categories";
+  allChip.textContent = "✨ All";
+  allChip.addEventListener("click", (e) => {
+    categoryFilter.value = "all";
+    render();
+  });
+  catbar.appendChild(allChip);
+
+  BOOK_DATA.forEach(c => {
+    const chip = document.createElement("a");
+    chip.className = "chip" + (cat === c.id ? " active" : "");
+    chip.href = "#" + c.id;
+    chip.textContent = c.name;
+    chip.addEventListener("click", () => {
+      categoryFilter.value = c.id;
+      render();
+    });
+    catbar.appendChild(chip);
+  });
+
+  // category dropdown
+  const existingOptions = new Set([...categoryFilter.options].map(o=>o.value));
+  BOOK_DATA.forEach(c => {
+    if(existingOptions.has(c.id)) return;
+    const opt = document.createElement("option");
+    opt.value = c.id;
+    opt.textContent = c.name;
+    categoryFilter.appendChild(opt);
+  });
+
+  // render categories
+  let shownCount = 0;
+  categoriesRoot.innerHTML = "";
+
+  const visibleCats = BOOK_DATA.filter(c => cat === "all" ? true : c.id === cat);
+
+  visibleCats.forEach(category => {
+    const matchedBooks = (category.books || []).filter(b => bookMatches(b, query));
+
+    // If filtering yields none, still show category header when "all categories" selected?
+    // Here: show category section only if it has matches OR no query (so full category view is clean)
+    const shouldShow = query ? matchedBooks.length > 0 : true;
+    if(!shouldShow) return;
+
+    shownCount += matchedBooks.length;
+
+    const section = document.createElement("section");
+    section.className = "section";
+    section.id = category.id;
+    section.style.paddingTop = "34px";
+    section.style.paddingBottom = "34px";
+
+    const badge = category.badge
+      ? `<span class="badge ${escapeHtml(category.badgeStyle || "p")}">🏷 ${escapeHtml(category.badge)}</span>`
+      : "";
+
+    const metaRight = `
+      <div class="cat-meta">
+        <span>${escapeHtml(category.name)}</span>
+        <span>•</span>
+        <span>${matchedBooks.length} book${matchedBooks.length === 1 ? "" : "s"}</span>
+      </div>
+    `;
+
+    const headerHtml = `
+      <div class="cat-head">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <h3 class="section-title" style="margin-bottom:0;font-size:clamp(1.25rem, 3.4vw, 2rem);">
+              ${escapeHtml(category.name)}
+            </h3>
+            ${badge}
+          </div>
+          <div style="margin-top:6px;color:var(--muted);font-weight:650;">
+            Browse ${escapeHtml(category.name)} books.
+          </div>
+        </div>
+        ${metaRight}
+      </div>
+    `;
+
+    section.innerHTML = `<div class="container">${headerHtml}</div>`;
+
+    const inner = document.createElement("div");
+    inner.className = "container";
+
+    if(!isExpanded){
+      // collapsed summary line
+      const summary = document.createElement("div");
+      summary.className = "empty";
+      summary.innerHTML = `Category collapsed. Click <b>↕ Expand</b> to show books.`;
+      inner.appendChild(summary);
+    } else if(matchedBooks.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "No books found in this category for your current search.";
+      inner.appendChild(empty);
+    } else {
+      const grid = document.createElement("div");
+      grid.className = "grid";
+
+      matchedBooks.forEach(book => {
+        const safeTitle = escapeHtml(book.title || "Untitled");
+        const safeAuthor = escapeHtml(book.author || "Unknown");
+        const safeYear = escapeHtml(book.year || "—");
+        const safePages = escapeHtml(book.pages || "—");
+        const safeFormat = escapeHtml(book.format || "PDF");
+        const safeDesc = escapeHtml(book.note || "Click details for more information.");
+
+        const tagList = (book.tags || []).slice(0,3).map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join("");
+        const hasDownload = book.downloadUrl && book.downloadUrl !== "#";
+        const dlTag = hasDownload
+          ? `<span class="tag ok">✅ Download</span>`
+          : `<span class="tag warn">⚠️ Add link</span>`;
+
+        const detailsUrl = book.detailsUrl || "#";
+        const downloadUrl = book.downloadUrl || "#";
+
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="cover">
+            <div class="cover-inner">
+              <div class="cover-mark">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3z"/></svg>
+                <span>${escapeHtml(category.name)}</span>
+              </div>
+              <div class="cover-title">${safeTitle}</div>
+              <div class="cover-author">by ${safeAuthor}</div>
+            </div>
+          </div>
+
+          <div class="body">
+            <div class="meta">
+              <span class="tag">📅 ${safeYear}</span>
+              <span class="tag">📄 ${safePages} pages</span>
+              <span class="tag">📦 ${safeFormat}</span>
+              ${dlTag}
+            </div>
+
+            <div class="desc">${safeDesc}</div>
+
+            <div class="meta">${tagList}</div>
+
+            <div class="actions">
+              <a class="a-btn" href="${detailsUrl}" ${detailsUrl.startsWith("http") ? 'rel="noopener noreferrer"' : ""}>
+                Details
+              </a>
+              <a class="a-btn primary" href="${downloadUrl}" target="${downloadUrl.startsWith("http") ? "_blank" : "_self"}"
+                 rel="noopener noreferrer">
+                Download
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      inner.appendChild(grid);
+    }
+
+    section.appendChild(inner);
+    categoriesRoot.appendChild(section);
+  });
+
+  statShown.textContent = shownCount;
+}
+
+function clearAll(){
+  q.value = "";
+  categoryFilter.value = "all";
+  render();
+}
+
+q.addEventListener("input", render);
+categoryFilter.addEventListener("change", render);
+clearBtn.addEventListener("click", clearAll);
+
+expandBtn.addEventListener("click", () => {
+  isExpanded = !isExpanded;
+  expandBtn.textContent = isExpanded ? "↕ Expand" : "↕ Collapsed";
+  render();
+});
+
+/* Mobile menu */
+const ham = $("ham");
+const mobileMenu = $("mobileMenu");
+function openMenu(){
+  ham.classList.add("open");
+  mobileMenu.classList.add("open");
+  ham.setAttribute("aria-expanded","true");
+  document.body.style.overflow = "hidden";
+}
+function closeMenu(){
+  ham.classList.remove("open");
+  mobileMenu.classList.remove("open");
+  ham.setAttribute("aria-expanded","false");
+  document.body.style.overflow = "";
+}
+ham.addEventListener("click", () => mobileMenu.classList.contains("open") ? closeMenu() : openMenu());
+mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => closeMenu()));
+document.addEventListener("click", (e) => {
+  if(mobileMenu.classList.contains("open") && !mobileMenu.contains(e.target) && !ham.contains(e.target)){
+    closeMenu();
+  }
+});
+
+/* Back to top */
+const btt = $("btt");
+window.addEventListener("scroll", () => {
+  btt.classList.toggle("show", window.scrollY > 500);
+},{passive:true});
+btt.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+/* Year */
+$("year").textContent = new Date().getFullYear();
+
+/* Initial render */
+render();
+</script>
+
+</body>
+</html>
