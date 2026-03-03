@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Books PDF Love — Free PDF Books by Category</title>
-  <meta name="description" content="Books PDF Love: Browse PDF books category-wise. Clean, fast homepage with search & filters. Add new books easily." />
-  <meta name="keywords" content="Books PDF Love, PDF books, download books pdf, free books pdf, categories, ebook pdf" />
+  <title>Books PDF Love — Download PDF Books by Category (Computer, Medical & More)</title>
+  <meta name="description" content="Books PDF Love: Ultra-pro PDF library homepage. Browse books category-wise (Computer, Medical, Engineering, Business, Exams & more). Fast search, filters, and clean UI." />
+  <meta name="keywords" content="Books PDF Love, PDF books, computer books pdf, medical books pdf, engineering books pdf, download pdf books, free ebooks pdf, categories" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#7C3AED" />
   <link rel="canonical" href="https://www.bookspdf.love/" />
@@ -13,15 +13,15 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Books PDF Love — PDF Books by Category" />
-  <meta property="og:description" content="Browse PDF books category-wise with search & filters. Add new books easily." />
+  <meta property="og:description" content="Browse PDF books category-wise (Computer, Medical, Engineering, Business, Exams & more). Fast search and filters." />
   <meta property="og:url" content="https://www.bookspdf.love/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Books PDF Love — PDF Books by Category" />
-  <meta name="twitter:description" content="Browse PDF books category-wise with search & filters. Add new books easily." />
+  <meta name="twitter:description" content="Browse PDF books category-wise (Computer, Medical, Engineering, Business, Exams & more). Fast search and filters." />
 
-  <!-- Schema.org -->
+  <!-- Schema: Website -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -42,552 +42,714 @@
 
   <style>
     :root{
+      --bg:#070A12;
+      --bg2:#0B1022;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.10);
+      --stroke2: rgba(255,255,255,.14);
+
+      --text:#F1F5FF;
+      --muted: rgba(241,245,255,.72);
+      --faint: rgba(241,245,255,.52);
+
       --primary:#7C3AED;
-      --primary-dark:#6D28D9;
-      --primary-light:#F3E8FF;
-      --blue:#2563EB;
-      --blue-light:#EFF6FF;
-      --green:#059669;
-      --green-light:#ECFDF5;
-      --orange:#D97706;
-      --orange-light:#FFFBEB;
-      --red:#DC2626;
-      --red-light:#FEF2F2;
+      --primary2:#2563EB;
+      --green:#10B981;
+      --orange:#F59E0B;
+      --red:#EF4444;
+      --pink:#EC4899;
+      --teal:#22C55E;
 
-      --bg:#F8FAFC;
-      --card:#FFFFFF;
-      --muted:#64748B;
-      --text:#0F172A;
-      --body:#334155;
-      --border:#E2E8F0;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 12px 30px rgba(0,0,0,.40);
 
-      --shadow-sm:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);
-      --shadow-md:0 10px 28px rgba(15,23,42,.10);
-      --shadow-lg:0 18px 50px rgba(15,23,42,.12);
+      --r-xs: 12px;
+      --r-sm: 16px;
+      --r-md: 20px;
+      --r-lg: 26px;
+      --r-xl: 34px;
 
-      --r-xs:10px;
-      --r-sm:14px;
-      --r-md:18px;
-      --r-lg:22px;
-      --r-xl:28px;
-
-      --font-display:'Poppins', 'Inter', sans-serif;
-      --font-body:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-display: 'Poppins','Inter',sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:var(--font-body);
-      background:var(--bg);
-      color:var(--body);
+      background: radial-gradient(1200px 700px at 15% 12%, rgba(124,58,237,.28), transparent 55%),
+                  radial-gradient(1000px 650px at 85% 18%, rgba(37,99,235,.22), transparent 55%),
+                  radial-gradient(900px 600px at 50% 85%, rgba(16,185,129,.14), transparent 55%),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg2) 70%, #050712 100%);
+      color:var(--text);
       line-height:1.65;
       overflow-x:hidden;
       -webkit-text-size-adjust:100%;
     }
 
     a{color:inherit}
-    .container{max-width:1200px;margin:0 auto;padding:0 18px}
-    .section{padding:86px 0}
-    section[id]{scroll-margin-top:86px}
+    .container{max-width:1240px;margin:0 auto;padding:0 18px}
+    section[id]{scroll-margin-top:92px}
 
-    /* Header */
+    /* ====== Ambient grid overlay ====== */
+    .noise{
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at 50% 18%, rgba(0,0,0,.95), transparent 70%);
+      opacity:.25;
+      z-index:0;
+    }
+
+    /* ====== Header ====== */
     header{
-      position:fixed;top:0;left:0;right:0;
+      position:fixed; top:0; left:0; right:0;
       z-index:5000;
-      background:rgba(255,255,255,.92);
-      backdrop-filter: blur(18px) saturate(150%);
-      border-bottom:1px solid var(--border);
-      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      background: rgba(10,12,22,.55);
+      backdrop-filter: blur(16px) saturate(160%);
+      border-bottom:1px solid var(--stroke);
     }
     .header-inner{
-      height:68px;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:14px;
-      max-width:1200px;margin:0 auto;padding:0 18px;
+      height:74px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      max-width:1240px; margin:0 auto; padding:0 18px;
     }
     .brand{
-      display:flex;align-items:center;gap:10px;
+      display:flex; align-items:center; gap:12px;
       text-decoration:none;
-      min-width:220px;
+      min-width: 220px;
     }
     .logo{
-      width:40px;height:40px;border-radius:12px;
-      background:linear-gradient(135deg,var(--primary),var(--blue));
-      box-shadow:var(--shadow-sm);
-      display:grid;place-items:center;
-      flex-shrink:0;
-      overflow:hidden;
+      width:44px;height:44px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      box-shadow: 0 18px 42px rgba(124,58,237,.28);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.16);
     }
     .logo svg{width:22px;height:22px;fill:white}
     .brand-txt{display:flex;flex-direction:column;line-height:1.05}
     .brand-name{
       font-family:var(--font-display);
       font-weight:900;
-      color:var(--text);
-      letter-spacing:-.4px;
-      font-size:1.03rem;
+      letter-spacing:-.5px;
+      font-size:1.05rem;
       white-space:nowrap;
     }
     .brand-sub{
+      margin-top:3px;
       font-size:.66rem;
-      letter-spacing:1.6px;
+      font-weight:900;
+      letter-spacing:1.8px;
       text-transform:uppercase;
-      color:var(--muted);
-      font-weight:800;
-      margin-top:2px;
+      color:var(--faint);
       white-space:nowrap;
     }
 
-    nav{display:flex;align-items:center;gap:4px}
+    nav{display:flex; align-items:center; gap:6px}
     nav a{
       text-decoration:none;
-      font-weight:700;
+      font-weight:850;
       color:var(--muted);
-      font-size:.90rem;
-      padding:8px 12px;
-      border-radius:var(--r-xs);
-      transition:all .2s ease;
+      font-size:.92rem;
+      padding:10px 12px;
+      border-radius:12px;
+      transition: all .2s ease;
       white-space:nowrap;
     }
-    nav a:hover{background:var(--primary-light);color:var(--primary)}
-    .nav-btn{
-      margin-left:6px;
-      background:var(--primary);
-      color:#fff !important;
-      border-radius:9999px;
-      padding:9px 16px;
-      box-shadow:0 10px 26px rgba(124,58,237,.22);
+    nav a:hover{
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      transform: translateY(-1px);
     }
-    .nav-btn:hover{background:var(--primary-dark)}
+
+    .nav-cta{
+      padding:10px 14px;
+      border-radius:9999px;
+      color:#fff;
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      box-shadow: 0 18px 44px rgba(37,99,235,.18);
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .nav-cta:hover{transform:translateY(-1px) scale(1.01)}
+
+    .right{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:9999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      color: var(--muted);
+      font-weight:900;
+      font-size:.84rem;
+      cursor:pointer;
+      user-select:none;
+      transition: all .2s ease;
+      white-space:nowrap;
+    }
+    .toggle:hover{background:rgba(255,255,255,.09); color:#fff; transform:translateY(-1px)}
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: rgba(255,255,255,.25);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+    }
+    .dot.on{
+      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(16,185,129,.18), 0 0 24px rgba(16,185,129,.22);
+    }
+
     .ham{
       display:none;
-      width:44px;height:44px;
-      border:1px solid var(--border);
-      background:#fff;
-      border-radius:12px;
+      width:46px; height:46px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
       cursor:pointer;
-      box-shadow:var(--shadow-sm);
     }
     .ham span{
-      display:block;width:18px;height:2px;background:var(--text);
-      margin:5px auto;border-radius:3px;
-      transition:transform .25s ease, opacity .25s ease;
+      display:block; width:18px; height:2px; background:#fff;
+      margin: 6px auto;
+      border-radius: 3px;
+      transition: transform .25s ease, opacity .25s ease;
     }
-    .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .ham.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     .ham.open span:nth-child(2){opacity:0}
-    .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .ham.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
     .mobile{
-      position:fixed;top:68px;left:0;right:0;bottom:0;
-      background:#fff;
+      position:fixed;
+      top:74px; left:0; right:0; bottom:0;
+      background: rgba(8,10,18,.82);
+      backdrop-filter: blur(18px) saturate(160%);
       z-index:4900;
-      transform:translateX(110%);
-      transition:transform .26s cubic-bezier(.4,0,.2,1);
-      border-top:1px solid var(--border);
+      transform: translateX(110%);
+      transition: transform .26s cubic-bezier(.4,0,.2,1);
+      border-top:1px solid var(--stroke);
       padding:14px;
       overflow:auto;
     }
-    .mobile.open{transform:translateX(0)}
+    .mobile.open{transform: translateX(0)}
     .m-label{
-      font-size:.62rem;font-weight:900;
-      letter-spacing:2px;text-transform:uppercase;
-      color:#94A3B8;margin:14px 8px 8px;
+      font-size:.64rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:950;
+      color: rgba(255,255,255,.45);
+      margin: 12px 10px 8px;
     }
     .mobile a{
-      display:flex;align-items:center;gap:10px;
+      display:flex; align-items:center; gap:10px;
+      padding:14px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
       text-decoration:none;
-      padding:12px 12px;
-      border-radius:14px;
-      font-weight:800;
-      color:var(--body);
-      border:1px solid transparent;
-      margin-bottom:6px;
+      font-weight:900;
+      margin-bottom:10px;
+      transition: all .2s ease;
     }
-    .mobile a:hover{background:var(--primary-light);border-color:#E9D5FF;color:var(--primary)}
+    .mobile a:hover{background:rgba(255,255,255,.10); transform: translateY(-1px)}
     .m-cta{
-      margin-top:10px;
       justify-content:center;
-      border-radius:9999px !important;
-      background:var(--primary) !important;
-      color:#fff !important;
-      box-shadow:0 12px 30px rgba(124,58,237,.22);
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1)) !important;
+      border-color: rgba(255,255,255,.16) !important;
     }
 
-    @media (max-width: 980px){
+    @media (max-width: 1040px){
       nav{display:none}
       .ham{display:block}
       .brand{min-width:auto}
     }
 
-    /* Hero */
+    /* ====== Hero ====== */
     .hero{
-      padding-top:106px;
-      padding-bottom:52px;
-      min-height:88vh;
-      display:flex;align-items:center;
-      background:
-        radial-gradient(1000px 450px at 15% 15%, rgba(124,58,237,.14), transparent 60%),
-        radial-gradient(900px 420px at 85% 70%, rgba(37,99,235,.12), transparent 60%),
-        linear-gradient(160deg, #F5F3FF 0%, #F8FAFC 52%, #FFFFFF 100%);
       position:relative;
-      overflow:hidden;
-    }
-    .hero-dots{
-      position:absolute;inset:0;
-      background-image: radial-gradient(circle, rgba(124,58,237,.07) 1px, transparent 1px);
-      background-size: 30px 30px;
-      pointer-events:none;
+      z-index:1;
+      padding-top:110px;
+      padding-bottom:46px;
     }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap:44px;
-      align-items:center;
+      gap:22px;
+      align-items:stretch;
+    }
+    .hero-left{
+      border-radius: var(--r-xl);
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      overflow:hidden;
       position:relative;
-      z-index:2;
+    }
+    .hero-left::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 320px at 25% 20%, rgba(124,58,237,.35), transparent 60%),
+                  radial-gradient(700px 320px at 85% 55%, rgba(37,99,235,.25), transparent 60%);
+      z-index:0;
+      opacity:.9;
+    }
+    .hero-pad{
+      position:relative; z-index:1;
+      padding:28px 26px;
     }
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:7px 14px;border-radius:9999px;
-      background:rgba(124,58,237,.14);
-      border:1px solid rgba(124,58,237,.16);
-      color:var(--primary-dark);
-      font-weight:900;
+      display:inline-flex; align-items:center; gap:9px;
+      padding:8px 12px;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      color: rgba(255,255,255,.86);
+      font-size:.72rem;
+      font-weight:950;
       letter-spacing:1.6px;
       text-transform:uppercase;
-      font-size:.72rem;
-      margin-bottom:16px;
       white-space:nowrap;
     }
     h1{
-      font-family:var(--font-display);
-      color:var(--text);
+      margin-top:14px;
+      font-family: var(--font-display);
+      font-weight:950;
       letter-spacing:-1px;
-      line-height:1.05;
-      font-size:clamp(2.2rem, 5.2vw, 3.9rem);
-      margin-bottom:10px;
+      line-height:1.03;
+      font-size: clamp(2.0rem, 4.6vw, 3.55rem);
     }
-    .accent{color:var(--primary)}
-    .hero-p{
-      color:var(--muted);
-      font-size:1.05rem;
+    .accent{
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      margin-top:12px;
+      color: var(--muted);
+      font-size: 1.05rem;
       line-height:1.9;
-      max-width:680px;
-      margin-bottom:18px;
+      max-width: 760px;
     }
-    .hero-tools{
-      display:flex;flex-wrap:wrap;gap:10px;
-      margin-bottom:18px;
+
+    .hero-row{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
     .pill{
-      display:inline-flex;align-items:center;gap:7px;
-      padding:7px 12px;
+      display:inline-flex;
+      align-items:center; gap:8px;
+      padding:9px 12px;
       border-radius:9999px;
-      font-weight:800;
-      font-size:.78rem;
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow:var(--shadow-sm);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight:900;
+      font-size:.82rem;
+      color: rgba(255,255,255,.86);
+      box-shadow: var(--shadow2);
       white-space:nowrap;
     }
-    .pill.p{background:var(--primary-light);border-color:#E9D5FF;color:var(--primary)}
-    .pill.b{background:var(--blue-light);border-color:#DBEAFE;color:var(--blue)}
-    .pill.g{background:var(--green-light);border-color:#BBF7D0;color:var(--green)}
-    .pill.o{background:var(--orange-light);border-color:#FDE68A;color:var(--orange)}
 
     .hero-cta{
-      display:flex;gap:12px;flex-wrap:wrap;
-      margin-top:6px;
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:14px 22px;border-radius:9999px;
-      font-weight:900;text-decoration:none;border:0;cursor:pointer;
-      transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:13px 16px;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.14);
+      text-decoration:none;
+      font-weight:950;
+      cursor:pointer;
+      transition: all .2s ease;
+      box-shadow: var(--shadow2);
       white-space:nowrap;
-      max-width:100%;
     }
-    .btn-primary{
-      background:var(--primary);
-      color:#fff;
-      box-shadow:0 14px 34px rgba(124,58,237,.24);
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      border-color: rgba(255,255,255,.18);
     }
-    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-    .btn-ghost{
-      background:#fff;color:var(--text);
-      border:1.5px solid var(--border);
-      box-shadow:var(--shadow-sm);
+    .btn.ghost{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
     }
-    .btn-ghost:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-2px)}
-    .hero-card{
-      background:rgba(255,255,255,.85);
-      border:1px solid rgba(226,232,240,.9);
-      border-radius:var(--r-xl);
-      box-shadow:var(--shadow-lg);
-      padding:22px;
-      backdrop-filter: blur(16px);
-      position:relative;
+    .btn:hover{transform:translateY(-1px); background-color:rgba(255,255,255,.10)}
+
+    .hero-right{
+      border-radius: var(--r-xl);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .hero-card::before{
-      content:"";
-      position:absolute;inset:-2px;
-      border-radius:var(--r-xl);
-      background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(37,99,235,.12));
-      z-index:-1;
+    .panel{
+      padding:20px;
     }
-    .stat-grid{
+    .panel-title{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .panel-title h2{
+      font-family:var(--font-display);
+      letter-spacing:-.6px;
+      font-weight:950;
+      font-size:1.18rem;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.88);
+      font-weight:950;
+      font-size:.72rem;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .stats{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:6px;
+      gap:10px;
+      margin-top:10px;
     }
     .stat{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
       padding:12px;
-      box-shadow:var(--shadow-sm);
+      box-shadow: var(--shadow2);
     }
     .stat b{
       display:block;
       font-family:var(--font-display);
-      color:var(--primary);
+      font-weight:950;
+      letter-spacing:-.6px;
+      color:#fff;
       font-size:1.2rem;
-      letter-spacing:-.3px;
       line-height:1.05;
     }
     .stat span{
       display:block;
-      margin-top:4px;
-      color:#94A3B8;
-      font-weight:900;
-      letter-spacing:1.5px;
+      margin-top:6px;
+      color: rgba(255,255,255,.55);
+      font-size:.68rem;
+      font-weight:950;
+      letter-spacing:1.8px;
       text-transform:uppercase;
-      font-size:.64rem;
     }
 
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns:1fr;gap:26px;text-align:center}
-      .hero-cta{justify-content:center}
-      .hero-tools{justify-content:center}
-      .hero-card{max-width:560px;margin:0 auto}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; gap:14px}
     }
     @media (max-width: 520px){
-      .hero{min-height:auto;padding-bottom:44px}
       .hero-cta{flex-direction:column}
       .btn{width:100%}
-      .stat-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
     }
 
-    /* Sticky category bar */
-    .catbar-wrap{
+    /* ====== Sticky filter bar ====== */
+    .sticky{
       position:sticky;
-      top:68px;
-      z-index:2000;
-      background:rgba(248,250,252,.92);
-      backdrop-filter: blur(16px);
-      border-bottom:1px solid var(--border);
+      top:74px;
+      z-index:2500;
+      background: rgba(7,10,18,.68);
+      backdrop-filter: blur(16px) saturate(160%);
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .catbar{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 0;
-      overflow:auto;
-      scrollbar-width:thin;
-    }
-    .chip{
-      flex:0 0 auto;
-      display:inline-flex;align-items:center;gap:8px;
-      padding:9px 12px;
-      border-radius:9999px;
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow:var(--shadow-sm);
-      font-weight:900;
-      font-size:.82rem;
-      text-decoration:none;
-      color:var(--body);
-      transition:all .2s ease;
-      white-space:nowrap;
-    }
-    .chip:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-1px)}
-    .chip.active{background:var(--primary);border-color:var(--primary);color:#fff}
 
-    /* Search / filter bar */
-    .tools{
-      padding:22px 0 0;
-    }
-    .tools-grid{
+    .toolbar{
+      padding:14px 0;
       display:grid;
-      grid-template-columns: 1.2fr .8fr .7fr;
-      gap:12px;
+      grid-template-columns: 1.1fr .7fr .7fr .7fr .6fr;
+      gap:10px;
       align-items:center;
-      margin-bottom:18px;
     }
     .field{
-      display:flex;align-items:center;gap:10px;
-      background:#fff;border:1px solid var(--border);
-      border-radius:9999px;
+      display:flex; align-items:center; gap:10px;
       padding:12px 14px;
-      box-shadow:var(--shadow-sm);
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
       min-height:46px;
     }
-    .field svg{width:18px;height:18px;fill:#94A3B8;flex-shrink:0}
+    .field svg{width:18px;height:18px;fill:rgba(255,255,255,.55);flex-shrink:0}
     input[type="search"], select{
       width:100%;
       border:0;
       outline:none;
-      font-family:var(--font-body);
-      font-weight:800;
-      color:var(--text);
       background:transparent;
+      color:#fff;
+      font-weight:900;
+      font-family:var(--font-body);
       font-size:.95rem;
     }
     select{cursor:pointer}
+    select option{color:#0B1022}
     .mini{
-      display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;
+      display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
     }
     .mini button{
-      border:1px solid var(--border);
-      background:#fff;
+      padding:12px 14px;
       border-radius:9999px;
-      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color:rgba(255,255,255,.88);
+      font-weight:950;
       cursor:pointer;
-      font-weight:900;
-      color:var(--body);
-      box-shadow:var(--shadow-sm);
-      transition:all .2s ease;
+      box-shadow: var(--shadow2);
+      transition: all .2s ease;
+      white-space:nowrap;
     }
-    .mini button:hover{border-color:#E9D5FF;color:var(--primary);transform:translateY(-1px)}
-    @media (max-width: 900px){
-      .tools-grid{grid-template-columns:1fr;gap:10px}
+    .mini button:hover{background:rgba(255,255,255,.10); transform:translateY(-1px)}
+    .mini button.danger:hover{border-color:rgba(239,68,68,.40); background:rgba(239,68,68,.10)}
+
+    @media (max-width: 1100px){
+      .toolbar{grid-template-columns: 1fr 1fr; }
       .mini{justify-content:stretch}
       .mini button{width:100%}
     }
 
-    /* Category sections & book cards */
+    /* ====== Category Mega Grid ====== */
+    .section{
+      padding:34px 0;
+      position:relative;
+      z-index:1;
+    }
     .section-title{
       font-family:var(--font-display);
-      font-weight:900;
-      color:var(--text);
-      letter-spacing:-.6px;
-      line-height:1.15;
-      font-size:clamp(1.55rem, 3.8vw, 2.4rem);
+      font-weight:950;
+      letter-spacing:-.8px;
+      line-height:1.10;
+      font-size: clamp(1.55rem, 3.0vw, 2.4rem);
       margin-bottom:10px;
-      word-break:break-word;
     }
     .section-sub{
-      color:var(--muted);
-      max-width:850px;
-      font-size:1.02rem;
-      line-height:1.85;
-      margin-bottom:20px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      max-width: 900px;
     }
-    .cat-head{
+
+    .cat-grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 1200px){ .cat-grid{grid-template-columns: repeat(5, 1fr)} }
+    @media (max-width: 980px){ .cat-grid{grid-template-columns: repeat(4, 1fr)} }
+    @media (max-width: 720px){ .cat-grid{grid-template-columns: repeat(3, 1fr)} }
+    @media (max-width: 480px){ .cat-grid{grid-template-columns: repeat(2, 1fr)} }
+
+    .cat{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      padding:12px;
+      text-decoration:none;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      min-height: 76px;
       display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:14px;
-      margin-bottom:14px;
-      flex-wrap:wrap;
+      gap:10px;
+      align-items:flex-start;
     }
-    .cat-meta{
-      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-      font-weight:900;
-      color:#94A3B8;
-      letter-spacing:1.4px;
-      text-transform:uppercase;
-      font-size:.66rem;
+    .cat:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.09);
     }
-    .badge{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 12px;border-radius:9999px;
+    .c-ico{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 18px 46px rgba(0,0,0,.35);
+      flex-shrink:0;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(37,99,235,.80));
+    }
+    .c-ico.alt{background: linear-gradient(135deg, rgba(16,185,129,.95), rgba(34,197,94,.70))}
+    .c-ico.hot{background: linear-gradient(135deg, rgba(245,158,11,.95), rgba(236,72,153,.70))}
+    .c-ico.red{background: linear-gradient(135deg, rgba(239,68,68,.95), rgba(245,158,11,.70))}
+    .c-ico.blue{background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(124,58,237,.70))}
+    .c-ico.gray{background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.08))}
+    .c-ico span{font-size:1.25rem}
+    .c-name{
+      font-weight:950;
+      letter-spacing:-.2px;
+      color:#fff;
+      font-size:.92rem;
+      line-height:1.25;
+    }
+    .c-meta{
+      margin-top:4px;
+      color: rgba(255,255,255,.55);
+      font-size:.72rem;
       font-weight:900;
       letter-spacing:1.2px;
       text-transform:uppercase;
-      font-size:.65rem;
-      border:1px solid transparent;
+    }
+
+    /* ====== Book Sections ====== */
+    .cat-head{
+      margin-top:26px;
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      padding:16px 16px;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+    }
+    .cat-head h3{
+      font-family:var(--font-display);
+      font-weight:950;
+      letter-spacing:-.7px;
+      line-height:1.12;
+      font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+    }
+    .cat-desc{
+      margin-top:6px;
+      color: var(--muted);
+      font-weight:650;
+      max-width: 860px;
+    }
+    .cat-actions{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.86);
+      font-weight:950;
+      font-size:.72rem;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
       white-space:nowrap;
     }
-    .badge.p{background:var(--primary-light);color:var(--primary);border-color:#E9D5FF}
-    .badge.g{background:var(--green-light);color:var(--green);border-color:#BBF7D0}
-    .badge.b{background:var(--blue-light);color:var(--blue);border-color:#DBEAFE}
-    .badge.o{background:var(--orange-light);color:var(--orange);border-color:#FDE68A}
 
     .grid{
+      margin-top:12px;
       display:grid;
       grid-template-columns: repeat(4, 1fr);
-      gap:14px;
+      gap:12px;
     }
     @media (max-width: 1100px){ .grid{grid-template-columns: repeat(3, 1fr)} }
-    @media (max-width: 780px){ .grid{grid-template-columns: repeat(2, 1fr)} }
-    @media (max-width: 460px){ .grid{grid-template-columns: 1fr} }
+    @media (max-width: 820px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 520px){ .grid{grid-template-columns: 1fr} }
 
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--r-lg);
-      box-shadow:var(--shadow-sm);
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
       overflow:hidden;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
       display:flex;
       flex-direction:column;
-      min-height:100%;
+      min-height: 100%;
     }
     .card:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow-md);
-      border-color:#E9D5FF;
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.09);
     }
+
     .cover{
-      position:relative;
       aspect-ratio: 4/5;
-      background:linear-gradient(135deg, rgba(124,58,237,.10), rgba(37,99,235,.08));
-      border-bottom:1px solid var(--border);
-      display:grid;
-      place-items:center;
-      padding:12px;
+      padding:14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(240px 180px at 20% 15%, rgba(124,58,237,.34), transparent 70%),
+        radial-gradient(240px 180px at 90% 80%, rgba(37,99,235,.26), transparent 70%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .cover::after{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity:.18;
+      pointer-events:none;
     }
     .cover-inner{
-      width:100%;
+      position:relative;
+      z-index:1;
       height:100%;
-      border-radius:18px;
-      border:1px solid rgba(226,232,240,.9);
-      background:rgba(255,255,255,.75);
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      padding:14px;
       display:flex;
       flex-direction:column;
-      justify-content:center;
+      justify-content:space-between;
       gap:10px;
-      padding:14px;
-      text-align:left;
-      box-shadow:0 18px 40px rgba(15,23,42,.08);
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
     }
-    .cover-mark{
-      display:flex;align-items:center;gap:10px;
-      font-weight:900;
-      color:var(--text);
-      letter-spacing:-.3px;
+    .mark{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
-    .cover-mark svg{width:18px;height:18px;fill:var(--primary);flex-shrink:0}
-    .cover-title{
+    .mark span{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:9999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      font-weight:950;
+      font-size:.70rem;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .mark .feat{
+      background: rgba(16,185,129,.14);
+      border-color: rgba(16,185,129,.30);
+      box-shadow: 0 0 26px rgba(16,185,129,.16);
+    }
+    .t1{
       font-family:var(--font-display);
-      font-weight:900;
-      color:var(--text);
+      font-weight:950;
+      letter-spacing:-.6px;
       line-height:1.15;
-      font-size:1.05rem;
-      letter-spacing:-.5px;
+      font-size:1.08rem;
       display:-webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow:hidden;
     }
-    .cover-author{
-      color:var(--muted);
+    .t2{
+      color: rgba(255,255,255,.70);
       font-weight:800;
-      font-size:.86rem;
+      font-size:.90rem;
       display:-webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -602,370 +764,361 @@
       flex:1;
     }
     .meta{
-      display:flex;gap:8px;flex-wrap:wrap;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
       align-items:center;
     }
     .tag{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:6px 10px;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
       border-radius:9999px;
-      border:1px solid var(--border);
-      background:#fff;
-      font-weight:900;
-      font-size:.70rem;
-      color:#475569;
-      letter-spacing:.2px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      font-weight:950;
+      font-size:.72rem;
+      color: rgba(255,255,255,.86);
       white-space:nowrap;
     }
-    .tag.ok{border-color:#BBF7D0;background:var(--green-light);color:var(--green)}
-    .tag.warn{border-color:#FDE68A;background:var(--orange-light);color:var(--orange)}
+    .tag.ok{
+      background: rgba(16,185,129,.14);
+      border-color: rgba(16,185,129,.30);
+    }
+    .tag.warn{
+      background: rgba(245,158,11,.14);
+      border-color: rgba(245,158,11,.30);
+    }
+
     .desc{
-      color:var(--muted);
-      font-size:.90rem;
+      color: var(--muted);
+      font-size:.92rem;
       line-height:1.75;
       display:-webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow:hidden;
-      margin-top:2px;
     }
     .actions{
+      margin-top:auto;
       display:flex;
       gap:10px;
-      margin-top:auto;
     }
     .a-btn{
       flex:1;
       text-align:center;
       text-decoration:none;
-      font-weight:900;
+      font-weight:950;
       border-radius:9999px;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow:var(--shadow-sm);
-      transition:all .2s ease;
+      padding:11px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      transition: all .2s ease;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .a-btn:hover{transform:translateY(-1px);border-color:#E9D5FF;color:var(--primary)}
+    .a-btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.10)}
     .a-btn.primary{
-      background:var(--primary);
-      border-color:var(--primary);
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(37,99,235,1));
+      border-color: rgba(255,255,255,.18);
       color:#fff;
-      box-shadow:0 14px 30px rgba(124,58,237,.18);
     }
-    .a-btn.primary:hover{background:var(--primary-dark);color:#fff}
 
     .empty{
-      padding:18px;
-      border-radius:var(--r-lg);
-      border:1px dashed #CBD5E1;
-      background:#fff;
-      color:#64748B;
-      font-weight:800;
+      margin-top:12px;
+      padding:16px;
+      border-radius: 20px;
+      border:1px dashed rgba(255,255,255,.18);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.72);
+      font-weight:850;
     }
 
-    /* How-to / disclaimer */
-    .info{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--r-xl);
-      box-shadow:var(--shadow-sm);
-      padding:22px;
-    }
-    .cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:14px;
-    }
-    .note{
-      border:1px solid var(--border);
-      border-radius:18px;
-      background:var(--bg);
-      padding:14px;
-    }
-    .note h3{
-      font-family:var(--font-display);
-      color:var(--text);
-      font-weight:900;
-      letter-spacing:-.4px;
-      font-size:1.05rem;
-      margin-bottom:6px;
-    }
-    .note p{color:var(--muted);font-weight:600;font-size:.95rem;line-height:1.85}
-    @media (max-width: 860px){ .cols{grid-template-columns:1fr} }
-
-    /* Footer */
+    /* ====== Footer ====== */
     footer{
-      background:#0B1220;
-      color:rgba(255,255,255,.72);
-      padding:60px 0 30px;
-      margin-top:40px;
+      margin-top:30px;
+      border-top:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(14px);
+      padding:44px 0 26px;
+      position:relative;
+      z-index:1;
     }
     .fgrid{
       display:grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap:22px;
-      margin-bottom:26px;
+      gap:18px;
+      margin-bottom:18px;
     }
-    .fbrand p{color:rgba(255,255,255,.55);max-width:420px;margin-top:10px;line-height:1.9;font-size:.90rem}
+    .fbrand p{
+      margin-top:10px;
+      color: rgba(255,255,255,.62);
+      max-width: 520px;
+      line-height:1.9;
+      font-weight:650;
+    }
     .fcol h4{
       font-size:.66rem;
       letter-spacing:2px;
       text-transform:uppercase;
-      font-weight:900;
-      color:rgba(255,255,255,.40);
+      font-weight:950;
+      color: rgba(255,255,255,.45);
       margin-bottom:10px;
     }
     .fcol a{
       display:block;
       text-decoration:none;
-      color:rgba(255,255,255,.72);
-      font-weight:700;
+      color: rgba(255,255,255,.70);
+      font-weight:850;
       margin-bottom:8px;
-      font-size:.92rem;
     }
     .fcol a:hover{color:#fff}
     .fbottom{
-      border-top:1px solid rgba(255,255,255,.08);
-      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:14px;
       display:flex;
       justify-content:space-between;
       gap:10px;
       flex-wrap:wrap;
-      color:rgba(255,255,255,.45);
-      font-size:.82rem;
-      font-weight:700;
+      color: rgba(255,255,255,.50);
+      font-weight:800;
+      font-size:.86rem;
     }
     @media (max-width: 860px){ .fgrid{grid-template-columns:1fr} }
 
     /* Back to top */
     #btt{
-      position:fixed;right:18px;bottom:18px;
-      width:46px;height:46px;border-radius:50%;
-      border:0;cursor:pointer;
-      background:var(--primary);
+      position:fixed; right:18px; bottom:18px;
+      width:48px; height:48px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
       color:#fff;
-      font-weight:900;
-      box-shadow:0 16px 36px rgba(124,58,237,.25);
+      font-weight:950;
+      cursor:pointer;
+      box-shadow: var(--shadow2);
       opacity:0;
-      transform:translateY(16px);
-      transition:opacity .25s ease, transform .25s ease, background .2s ease;
-      z-index:3000;
+      transform: translateY(16px);
+      transition: opacity .25s ease, transform .25s ease, background .2s ease;
+      z-index:4000;
+      backdrop-filter: blur(10px);
     }
-    #btt.show{opacity:1;transform:translateY(0)}
-    #btt:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    #btt.show{opacity:1; transform: translateY(0)}
+    #btt:hover{background: rgba(255,255,255,.12); transform: translateY(-2px)}
   </style>
 </head>
 
 <body>
+<div class="noise" aria-hidden="true"></div>
 
 <header>
   <div class="header-inner">
     <a class="brand" href="https://www.bookspdf.love/" aria-label="Books PDF Love Home">
       <div class="logo" aria-hidden="true">
-        <!-- Inline logo icon (no external images needed) -->
-        <svg viewBox="0 0 24 24" role="img" aria-label="Book Icon">
-          <path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v15.17A4.98 4.98 0 0 1 7 20h9V5a1 1 0 0 0-1-1H6z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v15.17A4.98 4.98 0 0 1 7 20h9V5a1 1 0 0 0-1-1H6z"/></svg>
       </div>
       <div class="brand-txt">
         <span class="brand-name">Books PDF Love</span>
-        <span class="brand-sub">PDF Books · Categories · Fast Search</span>
+        <span class="brand-sub">Computer • Medical • Engineering • Exams</span>
       </div>
     </a>
 
     <nav aria-label="Primary">
       <a href="#categories">Categories</a>
-      <a href="#how">How it Works</a>
+      <a href="#library">Library</a>
       <a href="#disclaimer">Disclaimer</a>
-      <a class="nav-btn" href="#categories">Browse Books ↓</a>
+      <a class="nav-cta" href="#library">Browse PDFs ↓</a>
     </nav>
 
-    <button class="ham" id="ham" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="right">
+      <div class="toggle" id="emptyToggle" title="Show categories even if empty">
+        <span class="dot" id="emptyDot"></span>
+        Show Empty
+      </div>
+
+      <button class="ham" id="ham" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <div class="mobile" id="mobileMenu" role="navigation" aria-label="Mobile Navigation">
   <div class="m-label">Navigation</div>
   <a href="https://www.bookspdf.love/">🏠 Home</a>
-  <a href="#categories">📚 Categories</a>
-  <a href="#how">🧭 How it Works</a>
+  <a href="#categories">🧭 Categories</a>
+  <a href="#library">📚 Library</a>
   <a href="#disclaimer">⚠️ Disclaimer</a>
-  <a class="m-cta" href="#categories">Browse Books ↓</a>
+  <a class="m-cta" href="#library">Browse PDFs ↓</a>
 </div>
 
-<section class="hero" id="top">
-  <div class="hero-dots"></div>
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">📚 PDF Library · Category-wise</div>
-        <h1>
-          Welcome to <a class="accent" href="https://www.bookspdf.love/" style="text-decoration:none;">Books PDF Love</a>
-        </h1>
-        <p class="hero-p">
-          A clean, fast homepage that lists <strong>all PDF books by category</strong>.
-          Use search + filters to find books instantly, and later you can add new books by editing only one list in this file.
-        </p>
+<main>
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-pad">
+            <div class="eyebrow">⚡ Ultra Pro PDF Library · Category-wise</div>
+            <h1>
+              <span class="accent">Computer</span>, <span class="accent">Medical</span> & Every Category — in One Place
+            </h1>
+            <p class="lead">
+              Books PDF Love is built for speed: search, filter, and browse PDF books category-wise.
+              This homepage automatically organizes your content — you can keep adding more books later without redesigning the page.
+            </p>
 
-        <div class="hero-tools" aria-label="Highlights">
-          <span class="pill p">⚡ Fast</span>
-          <span class="pill b">🔎 Search</span>
-          <span class="pill g">🧩 Easy to add books</span>
-          <span class="pill o">📂 Category-wise</span>
-        </div>
-
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#categories">📚 Browse Categories</a>
-          <a class="btn btn-ghost" href="#how">How to Add Books →</a>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Site stats">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;">
-          <div>
-            <div style="font-family:var(--font-display);font-weight:900;color:var(--text);letter-spacing:-.5px;font-size:1.25rem;">
-              Library Overview
+            <div class="hero-row" aria-label="Highlights">
+              <span class="pill">🔎 Instant Search</span>
+              <span class="pill">🧠 Computer + Medical Focus</span>
+              <span class="pill">📌 Category Mega Grid</span>
+              <span class="pill">🗂 Multi-filters</span>
+              <span class="pill">✨ Featured + New</span>
             </div>
-            <div style="color:var(--muted);font-weight:700;font-size:.92rem;margin-top:4px;line-height:1.6;">
-              Auto-updates when you add books in <code>BOOK_DATA</code>.
+
+            <div class="hero-cta">
+              <a class="btn primary" href="#library">📚 Open Library</a>
+              <a class="btn ghost" href="#categories">🧭 View Categories</a>
             </div>
           </div>
-          <span class="badge p">✅ Ready</span>
         </div>
 
-        <div class="stat-grid" style="margin-top:14px;">
-          <div class="stat"><b id="statBooks">0</b><span>Total Books</span></div>
-          <div class="stat"><b id="statCats">0</b><span>Categories</span></div>
-          <div class="stat"><b id="statShown">0</b><span>Shown Now</span></div>
-          <div class="stat"><b>Single</b><span>Index File</span></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
+        <aside class="hero-right" aria-label="Library stats">
+          <div class="panel">
+            <div class="panel-title">
+              <h2>Library Pulse</h2>
+              <span class="badge">Live Counters</span>
+            </div>
 
-<!-- Sticky categories bar -->
-<div class="catbar-wrap" id="catbarWrap">
-  <div class="container">
-    <div class="catbar" id="catbar" aria-label="Category quick navigation">
-      <!-- chips injected by JS -->
-    </div>
-  </div>
-</div>
+            <div class="stats">
+              <div class="stat"><b id="statBooks">0</b><span>Total Books</span></div>
+              <div class="stat"><b id="statCats">0</b><span>Categories</span></div>
+              <div class="stat"><b id="statShown">0</b><span>Shown Now</span></div>
+              <div class="stat"><b id="statFeatured">0</b><span>Featured</span></div>
+            </div>
 
-<section class="section" id="categories">
-  <div class="container">
-    <div class="tools" aria-label="Search and filters">
-      <div class="tools-grid">
-        <div class="field" title="Search by title, author, tags">
+            <div style="margin-top:14px;color:var(--muted);font-weight:650;line-height:1.85;">
+              Tip: use the filters bar to quickly find
+              <b>Computer Science</b>, <b>Medicine</b>, <b>Engineering</b>,
+              <b>Exam Prep</b>, and more.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky search + filters -->
+  <div class="sticky" aria-label="Search and filters">
+    <div class="container">
+      <div class="toolbar">
+        <div class="field" title="Search title, author, tags">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 1 1 5.29 14.01l4.35 4.35-1.41 1.41-4.35-4.35A8 8 0 0 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
-          <input id="q" type="search" placeholder="Search books (title, author, tags)..." autocomplete="off" />
+          <input id="q" type="search" placeholder="Search books (e.g., 'Anatomy', 'Python', 'Pharmacology')..." autocomplete="off" />
         </div>
 
-        <div class="field" title="Filter by category">
+        <div class="field" title="Category">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v2H3V5zm4 6h10v2H7v-2zm-2 6h14v2H5v-2z"/></svg>
           <select id="categoryFilter" aria-label="Category filter">
             <option value="all">All Categories</option>
           </select>
         </div>
 
+        <div class="field" title="Format">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5z"/></svg>
+          <select id="formatFilter" aria-label="Format filter">
+            <option value="all">All Formats</option>
+            <option value="PDF">PDF</option>
+            <option value="EPUB">EPUB</option>
+            <option value="MOBI">MOBI</option>
+            <option value="DOCX">DOCX</option>
+          </select>
+        </div>
+
+        <div class="field" title="Language">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 9H17.5a15.4 15.4 0 0 0-1.1-5.01A8.02 8.02 0 0 1 19.93 11zM12 4c.95 1.24 1.7 3.36 2.06 6H9.94C10.3 7.36 11.05 5.24 12 4zM4.07 13H6.5c.2 1.78.7 3.52 1.1 5.01A8.02 8.02 0 0 1 4.07 13zM6.5 11H4.07a8.02 8.02 0 0 1 3.53-5.01c-.4 1.49-.9 3.23-1.1 5.01zM9.94 13h4.12c-.36 2.64-1.11 4.76-2.06 6-.95-1.24-1.7-3.36-2.06-6zm7.56 0h2.43a8.02 8.02 0 0 1-3.53 5.01c.4-1.49.9-3.23 1.1-5.01z"/></svg>
+          <select id="langFilter" aria-label="Language filter">
+            <option value="all">All Languages</option>
+            <option value="English">English</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
         <div class="mini">
-          <button id="clearBtn" type="button">✕ Clear</button>
-          <button id="expandBtn" type="button" title="Expand / collapse all categories">↕ Expand</button>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="section-title">All Books, <span class="accent">Category-wise</span></h2>
-    <p class="section-sub">
-      Everything on the homepage. Click a category chip to jump, or use search to filter instantly.
-    </p>
-
-    <div id="categoriesRoot">
-      <!-- category sections injected by JS -->
-    </div>
-  </div>
-</section>
-
-<section class="section" id="how" style="padding-top:30px;">
-  <div class="container">
-    <div class="info">
-      <h2 class="section-title">How to Add <span class="accent">More Books</span></h2>
-      <p class="section-sub" style="margin-bottom:0;">
-        Open this file and edit the <code>BOOK_DATA</code> array in the script below. Each book is one object.
-        The homepage builds itself (category chips, counts, grids, and filters).
-      </p>
-
-      <div class="cols">
-        <div class="note">
-          <h3>1) Add a Category</h3>
-          <p>
-            Add a new object like:
-            <br><code>{ id: "romance", name: "Romance", badge: "Hot", badgeStyle: "o", books: [] }</code>
-          </p>
-        </div>
-        <div class="note">
-          <h3>2) Add a Book</h3>
-          <p>
-            Add a book into <code>books: []</code>:
-            <br><code>{ title, author, year, pages, format, tags, detailsUrl, downloadUrl }</code>
-          </p>
-        </div>
-        <div class="note">
-          <h3>3) Details Page (Optional)</h3>
-          <p>
-            If you create per-book pages later, set <code>detailsUrl</code> to something like:
-            <br><code>/books/atomic-habits.html</code>
-          </p>
-        </div>
-        <div class="note">
-          <h3>4) Safe Linking Tip</h3>
-          <p>
-            If a download is external, keep <code>rel="noopener noreferrer"</code> (already included).
-          </p>
+          <button id="sortBtn" type="button" title="Toggle sort">Sort: Newest</button>
+          <button id="clearBtn" class="danger" type="button">Clear</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<section class="section" id="disclaimer" style="padding-top:30px;">
-  <div class="container">
-    <div class="info" style="border-left:5px solid var(--orange);background:linear-gradient(135deg, rgba(217,119,6,.08), rgba(124,58,237,.06));">
-      <h2 class="section-title">Disclaimer</h2>
-      <p class="section-sub" style="margin-bottom:0;">
-        This template is for organizing links to PDF books. You are responsible for ensuring you have the rights/permission
-        to distribute or link to any content. Remove any content upon valid request.
+  <!-- Categories mega grid -->
+  <section class="section" id="categories">
+    <div class="container">
+      <h2 class="section-title">All Categories (Ultra Pro)</h2>
+      <p class="section-sub">
+        Every category is included. Categories with books are highlighted in your library section.
+        Turn on <b>Show Empty</b> to reveal “coming soon” sections too.
       </p>
+
+      <div class="cat-grid" id="catGrid" aria-label="Categories grid"></div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Library (category-wise books on homepage) -->
+  <section class="section" id="library">
+    <div class="container">
+      <h2 class="section-title">Library — Books Displayed Category-wise</h2>
+      <p class="section-sub">
+        This is the main homepage feed: books grouped by category with fast filtering.
+      </p>
+
+      <div id="categoriesRoot"></div>
+    </div>
+  </section>
+
+  <section class="section" id="disclaimer">
+    <div class="container">
+      <div class="cat-head" style="border-left:4px solid rgba(245,158,11,.9);">
+        <div>
+          <h3>Disclaimer</h3>
+          <div class="cat-desc">
+            This template organizes links to books. You are responsible for ensuring you have rights/permission
+            to host or share any content. Remove content upon valid request.
+          </div>
+        </div>
+        <div class="cat-actions">
+          <span class="chip">⚠️ Informational</span>
+          <span class="chip">🧾 Compliance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
   <div class="container">
     <div class="fgrid">
       <div class="fbrand">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div class="logo" aria-hidden="true" style="width:38px;height:38px;border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="logo" aria-hidden="true" style="width:42px;height:42px;border-radius:14px;">
             <svg viewBox="0 0 24 24"><path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3z"/></svg>
           </div>
           <div>
-            <div style="font-family:var(--font-display);font-weight:900;color:#fff;letter-spacing:-.4px;">Books PDF Love</div>
-            <div style="color:rgba(255,255,255,.55);font-weight:800;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;">
-              PDF Books · Category-wise
+            <div style="font-family:var(--font-display);font-weight:950;letter-spacing:-.6px;font-size:1.05rem;">Books PDF Love</div>
+            <div style="color:rgba(255,255,255,.55);font-weight:950;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-top:3px;">
+              Ultra Pro Category Library
             </div>
           </div>
         </div>
         <p>
-          A clean homepage template for listing books by category with search & filters.
-          Built as a single HTML file so you can host it anywhere.
+          Built for a clean, fast PDF library homepage with powerful filters and category-wise display.
+          <br>Website: <b>https://www.bookspdf.love/</b>
         </p>
       </div>
 
@@ -973,20 +1126,22 @@
         <h4>Quick Links</h4>
         <a href="#top">Back to Top</a>
         <a href="#categories">Categories</a>
-        <a href="#how">How it Works</a>
+        <a href="#library">Library</a>
         <a href="#disclaimer">Disclaimer</a>
       </div>
 
       <div class="fcol">
-        <h4>Website</h4>
-        <a href="https://www.bookspdf.love/">Home</a>
-        <a href="#categories">Browse Books</a>
+        <h4>Focus Areas</h4>
+        <a href="#computer-science">Computer & IT</a>
+        <a href="#medical">Medical</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#exam-prep">Exam Prep</a>
       </div>
     </div>
 
     <div class="fbottom">
-      <div>© <span id="year"></span> Books PDF Love — https://www.bookspdf.love/</div>
-      <div>Built for speed • Mobile-friendly • Easy to extend</div>
+      <div>© <span id="year"></span> Books PDF Love</div>
+      <div>Fast • Responsive • Category-wise</div>
     </div>
   </div>
 </footer>
@@ -994,321 +1149,463 @@
 <button id="btt" aria-label="Back to top">↑</button>
 
 <script>
-/* ===========================
-   BOOK DATA (EDIT THIS ONLY)
-   =========================== */
+/* =========================================================
+   BOOK DATA (Ultra categories included)
+   - Add books later by appending objects in books: []
+   - This homepage auto-renders category-wise
+   ========================================================= */
+
 const BOOK_DATA = [
-  {
-    id: "self-help",
-    name: "Self-Help",
-    badge: "Popular",
-    badgeStyle: "p",
-    books: [
-      {
-        title: "Atomic Habits",
-        author: "James Clear",
-        year: "2018",
-        pages: "320",
-        format: "PDF",
-        tags: ["habits", "productivity", "mindset"],
-        detailsUrl: "#",
-        downloadUrl: "#",
-        note: "Replace URLs with your own."
-      },
-      {
-        title: "The Power of Now",
-        author: "Eckhart Tolle",
-        year: "1997",
-        pages: "236",
-        format: "PDF",
-        tags: ["mindfulness", "spiritual"],
-        detailsUrl: "#",
-        downloadUrl: "#",
-        note: "Replace URLs with your own."
-      }
-    ]
-  },
-  {
-    id: "programming",
-    name: "Programming",
-    badge: "Tech",
-    badgeStyle: "b",
-    books: [
-      {
-        title: "Clean Code",
-        author: "Robert C. Martin",
-        year: "2008",
-        pages: "464",
-        format: "PDF",
-        tags: ["software", "best-practices", "engineering"],
-        detailsUrl: "#",
-        downloadUrl: "#",
-        note: "Replace URLs with your own."
-      },
-      {
-        title: "You Don't Know JS (Yet)",
-        author: "Kyle Simpson",
-        year: "2020",
-        pages: "—",
-        format: "PDF",
-        tags: ["javascript", "frontend"],
-        detailsUrl: "#",
-        downloadUrl: "#",
-        note: "Replace URLs with your own."
-      }
-    ]
-  },
-  {
-    id: "novels",
-    name: "Novels",
-    badge: "New",
-    badgeStyle: "g",
-    books: [
-      {
-        title: "Example Novel Title",
-        author: "Author Name",
-        year: "—",
-        pages: "—",
-        format: "PDF",
-        tags: ["fiction"],
-        detailsUrl: "#",
-        downloadUrl: "#",
-        note: "Replace URLs with your own."
-      }
-    ]
-  }
+  /* ====== Computer / IT (your major focus) ====== */
+  { id:"computer-science", name:"Computer Science", icon:"💻", style:"blue", desc:"Algorithms, data structures, OS, compilers, theory.", books:[
+    { title:"Introduction to Algorithms (Sample)", author:"Cormen et al.", year:"—", pages:"—", sizeMB:"—", language:"English", format:"PDF", tags:["algorithms","ds"], featured:true, detailsUrl:"#", downloadUrl:"#", note:"Replace with your real link." },
+    { title:"Operating Systems Concepts (Sample)", author:"Silberschatz", year:"—", pages:"—", sizeMB:"—", language:"English", format:"PDF", featured:false, detailsUrl:"#", downloadUrl:"#", tags:["os","kernels"], note:"Replace with your real link." }
+  ]},
+  { id:"programming", name:"Programming", icon:"👨‍💻", style:"blue", desc:"Languages, coding, clean code, patterns.", books:[
+    { title:"Python Crash Course (Sample)", author:"Eric Matthes", year:"—", pages:"—", sizeMB:"—", language:"English", format:"PDF", featured:true, detailsUrl:"#", downloadUrl:"#", tags:["python","beginner"], note:"Replace with your real link." }
+  ]},
+  { id:"web-development", name:"Web Development", icon:"🌐", style:"blue", desc:"HTML, CSS, JS, React, backend, full-stack.", books:[] },
+  { id:"data-science", name:"Data Science", icon:"📊", style:"blue", desc:"Data analysis, visualization, statistics for DS.", books:[] },
+  { id:"ai-ml", name:"AI & Machine Learning", icon:"🤖", style:"blue", desc:"ML, DL, NLP, CV, AI foundations.", books:[] },
+  { id:"cybersecurity", name:"Cybersecurity", icon:"🛡️", style:"red", desc:"Pentesting, network security, blue team.", books:[] },
+  { id:"networking", name:"Networking", icon:"🧷", style:"blue", desc:"CCNA, protocols, network design.", books:[] },
+  { id:"cloud-devops", name:"Cloud & DevOps", icon:"☁️", style:"blue", desc:"AWS, Azure, Docker, Kubernetes, CI/CD.", books:[] },
+  { id:"databases", name:"Databases", icon:"🗄️", style:"blue", desc:"SQL, NoSQL, DB design, optimization.", books:[] },
+  { id:"mobile-development", name:"Mobile Development", icon:"📱", style:"blue", desc:"Android, iOS, Flutter, React Native.", books:[] },
+  { id:"software-engineering", name:"Software Engineering", icon:"🧩", style:"blue", desc:"Design patterns, architecture, testing.", books:[] },
+  { id:"ui-ux", name:"UI/UX Design", icon:"🎨", style:"hot", desc:"Product design, UX research, UI systems.", books:[] },
+  { id:"computer-graphics", name:"Computer Graphics", icon:"🧿", style:"blue", desc:"Rendering, OpenGL, shaders, 3D.", books:[] },
+  { id:"game-development", name:"Game Development", icon:"🎮", style:"hot", desc:"Unity, Unreal, game programming.", books:[] },
+
+  /* ====== Medical (your major focus) ====== */
+  { id:"medical", name:"Medical (General)", icon:"🩺", style:"alt", desc:"General medicine, clinical basics, references.", books:[
+    { title:"Gray's Anatomy (Sample)", author:"—", year:"—", pages:"—", sizeMB:"—", language:"English", format:"PDF", featured:true, detailsUrl:"#", downloadUrl:"#", tags:["anatomy","medical"], note:"Replace with your real link." }
+  ]},
+  { id:"anatomy", name:"Anatomy", icon:"🫀", style:"alt", desc:"Human anatomy, atlases, diagrams.", books:[] },
+  { id:"physiology", name:"Physiology", icon:"🧠", style:"alt", desc:"Body functions, systems physiology.", books:[] },
+  { id:"pharmacology", name:"Pharmacology", icon:"💊", style:"alt", desc:"Drug mechanisms, classes, clinical use.", books:[] },
+  { id:"pathology", name:"Pathology", icon:"🧫", style:"alt", desc:"Disease mechanisms, histopathology.", books:[] },
+  { id:"microbiology", name:"Microbiology", icon:"🦠", style:"alt", desc:"Bacteria, viruses, fungi, lab methods.", books:[] },
+  { id:"biochemistry", name:"Biochemistry", icon:"🧪", style:"alt", desc:"Metabolism, enzymes, molecular bio.", books:[] },
+  { id:"surgery", name:"Surgery", icon:"🩻", style:"alt", desc:"Surgical basics, procedures, notes.", books:[] },
+  { id:"medicine-internal", name:"Internal Medicine", icon:"🏥", style:"alt", desc:"Clinical medicine & diagnosis.", books:[] },
+  { id:"pediatrics", name:"Pediatrics", icon:"👶", style:"alt", desc:"Child health, pediatrics references.", books:[] },
+  { id:"gynecology-ob", name:"OB/GYN", icon:"🤰", style:"alt", desc:"Obstetrics & gynecology.", books:[] },
+  { id:"dentistry", name:"Dentistry", icon:"🦷", style:"alt", desc:"Dental anatomy, surgery, clinical.", books:[] },
+  { id:"nursing", name:"Nursing", icon:"🧑‍⚕️", style:"alt", desc:"Nursing fundamentals & practice.", books:[] },
+  { id:"radiology", name:"Radiology", icon:"🩻", style:"alt", desc:"Imaging, CT/MRI basics, interpretation.", books:[] },
+  { id:"dermatology", name:"Dermatology", icon:"🧴", style:"alt", desc:"Skin diseases, clinical guides.", books:[] },
+  { id:"psychiatry", name:"Psychiatry", icon:"🧩", style:"alt", desc:"Mental health, DSM guides, therapy.", books:[] },
+  { id:"public-health", name:"Public Health", icon:"🌍", style:"alt", desc:"Epidemiology, biostats, community health.", books:[] },
+
+  /* ====== Engineering ====== */
+  { id:"engineering", name:"Engineering (General)", icon:"🧱", style:"hot", desc:"Core engineering books & references.", books:[] },
+  { id:"electrical-engineering", name:"Electrical Engineering", icon:"⚡", style:"hot", desc:"Circuits, signals, power systems.", books:[] },
+  { id:"electronics", name:"Electronics", icon:"🔌", style:"hot", desc:"Analog/digital electronics, devices.", books:[] },
+  { id:"mechanical-engineering", name:"Mechanical Engineering", icon:"⚙️", style:"hot", desc:"Thermo, mechanics, machines.", books:[] },
+  { id:"civil-engineering", name:"Civil Engineering", icon:"🏗️", style:"hot", desc:"Structures, construction, materials.", books:[] },
+  { id:"chemical-engineering", name:"Chemical Engineering", icon:"🧯", style:"hot", desc:"Processes, reactors, plant design.", books:[] },
+  { id:"architecture", name:"Architecture", icon:"🏛️", style:"hot", desc:"Architecture, design, planning.", books:[] },
+  { id:"mathematics", name:"Mathematics", icon:"📐", style:"blue", desc:"Calculus, linear algebra, discrete math.", books:[] },
+  { id:"physics", name:"Physics", icon:"🧲", style:"blue", desc:"Mechanics, EM, quantum basics.", books:[] },
+  { id:"chemistry", name:"Chemistry", icon:"⚗️", style:"blue", desc:"Organic/inorganic, physical chemistry.", books:[] },
+
+  /* ====== Business / Career ====== */
+  { id:"business", name:"Business", icon:"💼", style:"gray", desc:"Management, strategy, operations.", books:[] },
+  { id:"finance", name:"Finance", icon:"💰", style:"gray", desc:"Accounting, investing, corporate finance.", books:[] },
+  { id:"marketing", name:"Marketing", icon:"📣", style:"gray", desc:"Branding, marketing strategy, ads.", books:[] },
+  { id:"economics", name:"Economics", icon:"📈", style:"gray", desc:"Micro/macro, development economics.", books:[] },
+  { id:"entrepreneurship", name:"Entrepreneurship", icon:"🚀", style:"gray", desc:"Startups, product, growth.", books:[] },
+  { id:"hr", name:"HR & Leadership", icon:"🧑‍🤝‍🧑", style:"gray", desc:"Leadership, HR, communication.", books:[] },
+
+  /* ====== Exams / Certifications ====== */
+  { id:"exam-prep", name:"Exam Prep", icon:"📝", style:"red", desc:"Entry tests, competitive exams, prep.", books:[] },
+  { id:"it-certifications", name:"IT Certifications", icon:"📜", style:"red", desc:"CompTIA, Cisco, AWS, Microsoft.", books:[] },
+  { id:"medical-exams", name:"Medical Exams", icon:"🧾", style:"red", desc:"USMLE, PLAB, FCPS, etc.", books:[] },
+  { id:"css-pms", name:"CSS / PMS", icon:"🏛️", style:"red", desc:"Civil services preparation.", books:[] },
+  { id:"ielts", name:"IELTS / English Tests", icon:"🗣️", style:"red", desc:"IELTS, TOEFL, grammar practice.", books:[] },
+
+  /* ====== Humanities / General ====== */
+  { id:"self-help", name:"Self-Help", icon:"🌟", style:"hot", desc:"Habits, productivity, mindset.", books:[] },
+  { id:"psychology", name:"Psychology", icon:"🧠", style:"hot", desc:"Cognitive, behavioral, learning.", books:[] },
+  { id:"education", name:"Education", icon:"🏫", style:"gray", desc:"Teaching, pedagogy, learning.", books:[] },
+  { id:"history", name:"History", icon:"📜", style:"gray", desc:"World history, regional history.", books:[] },
+  { id:"philosophy", name:"Philosophy", icon:"🧿", style:"gray", desc:"Logic, ethics, philosophy.", books:[] },
+  { id:"religion-islamic", name:"Islamic Books", icon:"🕌", style:"alt", desc:"Quran, Hadith, Fiqh, Seerah.", books:[] },
+  { id:"literature", name:"Literature", icon:"📚", style:"gray", desc:"Classics, criticism, literary works.", books:[] },
+  { id:"novels", name:"Novels", icon:"📖", style:"gray", desc:"Fiction, novels, storytelling.", books:[] },
+  { id:"poetry", name:"Poetry", icon:"✍️", style:"gray", desc:"Poetry collections, styles.", books:[] },
+
+  /* ====== Skills ====== */
+  { id:"languages", name:"Languages", icon:"🌐", style:"gray", desc:"Language learning books.", books:[] },
+  { id:"graphic-design", name:"Graphic Design", icon:"🖌️", style:"hot", desc:"Photoshop, Illustrator, branding.", books:[] },
+  { id:"photography", name:"Photography", icon:"📷", style:"hot", desc:"Photography guides & editing.", books:[] },
+  { id:"cooking", name:"Cooking", icon:"🍳", style:"hot", desc:"Recipes, cooking basics.", books:[] },
+  { id:"fitness", name:"Fitness", icon:"🏋️", style:"alt", desc:"Workout, nutrition, health.", books:[] },
+
+  /* ====== School / College ====== */
+  { id:"school", name:"School", icon:"🎒", style:"gray", desc:"Primary to secondary education books.", books:[] },
+  { id:"college", name:"College", icon:"🏛️", style:"gray", desc:"College-level study materials.", books:[] },
+  { id:"university", name:"University", icon:"🎓", style:"gray", desc:"University-level references.", books:[] },
+
+  /* ====== Special / Utility ====== */
+  { id:"research", name:"Research & Journals", icon:"🔬", style:"blue", desc:"Research methods, papers, guides.", books:[] },
+  { id:"law", name:"Law", icon:"⚖️", style:"gray", desc:"Law books, constitutions, case studies.", books:[] },
+  { id:"travel", name:"Travel", icon:"🧳", style:"gray", desc:"Travel guides, maps, culture.", books:[] },
+  { id:"art", name:"Art", icon:"🖼️", style:"hot", desc:"Drawing, painting, art history.", books:[] }
 ];
 
 /* ===========================
-   RENDER + FILTER LOGIC
+   RENDER + FILTER ENGINE
    =========================== */
 const $ = (id) => document.getElementById(id);
 
-const categoriesRoot = $("categoriesRoot");
-const catbar = $("catbar");
 const q = $("q");
 const categoryFilter = $("categoryFilter");
+const formatFilter = $("formatFilter");
+const langFilter = $("langFilter");
+const sortBtn = $("sortBtn");
 const clearBtn = $("clearBtn");
-const expandBtn = $("expandBtn");
+const categoriesRoot = $("categoriesRoot");
+const catGrid = $("catGrid");
 
 const statBooks = $("statBooks");
 const statCats = $("statCats");
 const statShown = $("statShown");
+const statFeatured = $("statFeatured");
 
-let isExpanded = true;
+const emptyToggle = $("emptyToggle");
+const emptyDot = $("emptyDot");
+
+let showEmpty = false;
+let sortMode = "newest"; // newest | az
 
 function escapeHtml(str){
-  return String(str).replace(/[&<>"']/g, s => ({
+  return String(str ?? "").replace(/[&<>"']/g, s => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[s]));
 }
 
-function bookMatches(book, query){
-  if(!query) return true;
-  const hay = [
-    book.title, book.author, book.year, book.format,
-    ...(book.tags || [])
-  ].join(" ").toLowerCase();
-  return hay.includes(query.toLowerCase());
+function normalizeLang(lang){
+  if(!lang) return "Other";
+  const L = String(lang).trim();
+  if(["English","Urdu","Hindi","Arabic"].includes(L)) return L;
+  return "Other";
 }
 
-function render(){
-  const query = q.value.trim();
+function bookMatchesFilters(book, query){
   const cat = categoryFilter.value;
+  const fmt = formatFilter.value;
+  const lang = langFilter.value;
 
-  // counts
-  const totalCats = BOOK_DATA.length;
-  const totalBooks = BOOK_DATA.reduce((acc,c)=>acc + (c.books?.length||0), 0);
+  if(cat !== "all" && book._catId !== cat) return false;
+  if(fmt !== "all" && String(book.format || "").toUpperCase() !== fmt) return false;
 
-  statCats.textContent = totalCats;
-  statBooks.textContent = totalBooks;
+  const bLang = normalizeLang(book.language);
+  if(lang !== "all" && bLang !== lang) return false;
 
-  // category chips
-  catbar.innerHTML = "";
-  const allChip = document.createElement("a");
-  allChip.className = "chip" + (cat === "all" ? " active" : "");
-  allChip.href = "#categories";
-  allChip.textContent = "✨ All";
-  allChip.addEventListener("click", (e) => {
-    categoryFilter.value = "all";
-    render();
-  });
-  catbar.appendChild(allChip);
+  const qv = query.trim().toLowerCase();
+  if(!qv) return true;
 
+  const hay = [
+    book.title, book.author, book.year, book.format, book.language,
+    ...(book.tags || [])
+  ].join(" ").toLowerCase();
+
+  return hay.includes(qv);
+}
+
+function buildFlatBooks(){
+  const flat = [];
   BOOK_DATA.forEach(c => {
-    const chip = document.createElement("a");
-    chip.className = "chip" + (cat === c.id ? " active" : "");
-    chip.href = "#" + c.id;
-    chip.textContent = c.name;
-    chip.addEventListener("click", () => {
-      categoryFilter.value = c.id;
-      render();
+    (c.books || []).forEach(b => {
+      flat.push({ ...b, _catId: c.id, _catName: c.name });
     });
-    catbar.appendChild(chip);
   });
+  return flat;
+}
 
-  // category dropdown
-  const existingOptions = new Set([...categoryFilter.options].map(o=>o.value));
+function categoryHasAnyBook(category){
+  return (category.books || []).length > 0;
+}
+
+function categoryHasAnyMatch(category, query){
+  const books = (category.books || []).map(b => ({...b, _catId:category.id, _catName:category.name}));
+  return books.some(b => bookMatchesFilters(b, query));
+}
+
+function renderCategoryDropdown(){
+  // preserve existing "All"
+  const existing = new Set([...categoryFilter.options].map(o => o.value));
   BOOK_DATA.forEach(c => {
-    if(existingOptions.has(c.id)) return;
+    if(existing.has(c.id)) return;
     const opt = document.createElement("option");
     opt.value = c.id;
     opt.textContent = c.name;
     categoryFilter.appendChild(opt);
   });
+}
 
-  // render categories
-  let shownCount = 0;
+function catStyleClass(style){
+  if(style === "alt") return "alt";
+  if(style === "hot") return "hot";
+  if(style === "red") return "red";
+  if(style === "blue") return "blue";
+  if(style === "gray") return "gray";
+  return "blue";
+}
+
+function renderCategoryGrid(query){
+  catGrid.innerHTML = "";
+
+  // Sort categories so ones with books appear first (ultra-pro feel)
+  const cats = [...BOOK_DATA].sort((a,b) => (categoryHasAnyBook(b)-categoryHasAnyBook(a)) || a.name.localeCompare(b.name));
+
+  cats.forEach(c => {
+    const count = (c.books || []).length;
+    const card = document.createElement("a");
+    card.className = "cat";
+    card.href = "#" + c.id;
+
+    const icoClass = catStyleClass(c.style);
+    const countLabel = count > 0 ? `${count} book${count===1?"":"s"}` : "coming soon";
+
+    card.innerHTML = `
+      <div class="c-ico ${icoClass}"><span>${escapeHtml(c.icon || "📚")}</span></div>
+      <div>
+        <div class="c-name">${escapeHtml(c.name)}</div>
+        <div class="c-meta">${escapeHtml(countLabel)}</div>
+      </div>
+    `;
+
+    // If user is filtering and category has no match, fade it slightly (still included)
+    if(query && !categoryHasAnyMatch(c, query)){
+      card.style.opacity = "0.55";
+    }
+
+    catGrid.appendChild(card);
+  });
+}
+
+function renderLibrary(){
+  const query = q.value || "";
+
+  renderCategoryDropdown();
+
+  const flat = buildFlatBooks();
+  const totalBooks = flat.length;
+  const totalCats = BOOK_DATA.length;
+  const featuredCount = flat.filter(b => !!b.featured).length;
+
+  statBooks.textContent = totalBooks;
+  statCats.textContent = totalCats;
+  statFeatured.textContent = featuredCount;
+
+  // Render categories grid (always includes all categories)
+  renderCategoryGrid(query);
+
+  // Render category-wise sections
   categoriesRoot.innerHTML = "";
+  let shownNow = 0;
 
-  const visibleCats = BOOK_DATA.filter(c => cat === "all" ? true : c.id === cat);
+  // Sort categories: matched-first, then with books, then alpha
+  const cats = [...BOOK_DATA].sort((a,b) => {
+    const am = categoryHasAnyMatch(a, query) ? 1 : 0;
+    const bm = categoryHasAnyMatch(b, query) ? 1 : 0;
+    if(bm !== am) return bm - am;
 
-  visibleCats.forEach(category => {
-    const matchedBooks = (category.books || []).filter(b => bookMatches(b, query));
+    const ah = categoryHasAnyBook(a) ? 1 : 0;
+    const bh = categoryHasAnyBook(b) ? 1 : 0;
+    if(bh !== ah) return bh - ah;
 
-    // If filtering yields none, still show category header when "all categories" selected?
-    // Here: show category section only if it has matches OR no query (so full category view is clean)
-    const shouldShow = query ? matchedBooks.length > 0 : true;
+    return a.name.localeCompare(b.name);
+  });
+
+  cats.forEach(category => {
+    const books = (category.books || []).map(b => ({...b, _catId:category.id, _catName:category.name}));
+
+    // Apply filters to this category's books
+    let matched = books.filter(b => bookMatchesFilters(b, query));
+
+    // Sort books
+    if(sortMode === "az"){
+      matched.sort((a,b) => String(a.title||"").localeCompare(String(b.title||"")));
+    }else{
+      // "Newest": try added date (if exists) else featured first else keep order
+      matched.sort((a,b) => {
+        const ad = Date.parse(a.added || "") || 0;
+        const bd = Date.parse(b.added || "") || 0;
+        if(bd !== ad) return bd - ad;
+        return (b.featured?1:0) - (a.featured?1:0);
+      });
+    }
+
+    const hasAny = books.length > 0;
+    const hasMatch = matched.length > 0;
+
+    // Decide section visibility
+    // - If showEmpty OFF: show categories only if they have matches (or no query and they have any books)
+    // - If showEmpty ON: show every category (empty categories show "coming soon")
+    let shouldShow;
+    if(showEmpty){
+      shouldShow = true;
+    } else {
+      if(query.trim()){
+        shouldShow = hasMatch;
+      } else {
+        // no query: show only categories that have at least one book
+        shouldShow = hasAny;
+      }
+    }
+
     if(!shouldShow) return;
 
-    shownCount += matchedBooks.length;
-
+    // Build category header
     const section = document.createElement("section");
     section.className = "section";
     section.id = category.id;
-    section.style.paddingTop = "34px";
-    section.style.paddingBottom = "34px";
 
-    const badge = category.badge
-      ? `<span class="badge ${escapeHtml(category.badgeStyle || "p")}">🏷 ${escapeHtml(category.badge)}</span>`
-      : "";
+    const countText = hasAny ? `${books.length} total` : "0 total";
+    const matchText = query.trim() ? `${matched.length} shown` : `${books.length} shown`;
 
-    const metaRight = `
-      <div class="cat-meta">
-        <span>${escapeHtml(category.name)}</span>
-        <span>•</span>
-        <span>${matchedBooks.length} book${matchedBooks.length === 1 ? "" : "s"}</span>
-      </div>
-    `;
-
-    const headerHtml = `
+    section.innerHTML = `
       <div class="cat-head">
         <div>
-          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-            <h3 class="section-title" style="margin-bottom:0;font-size:clamp(1.25rem, 3.4vw, 2rem);">
-              ${escapeHtml(category.name)}
-            </h3>
-            ${badge}
-          </div>
-          <div style="margin-top:6px;color:var(--muted);font-weight:650;">
-            Browse ${escapeHtml(category.name)} books.
-          </div>
+          <h3>${escapeHtml(category.icon || "📚")} ${escapeHtml(category.name)}</h3>
+          <div class="cat-desc">${escapeHtml(category.desc || "Browse books in this category.")}</div>
         </div>
-        ${metaRight}
+        <div class="cat-actions">
+          <span class="chip">${escapeHtml(countText)}</span>
+          <span class="chip">${escapeHtml(matchText)}</span>
+        </div>
       </div>
     `;
 
-    section.innerHTML = `<div class="container">${headerHtml}</div>`;
-
-    const inner = document.createElement("div");
-    inner.className = "container";
-
-    if(!isExpanded){
-      // collapsed summary line
-      const summary = document.createElement("div");
-      summary.className = "empty";
-      summary.innerHTML = `Category collapsed. Click <b>↕ Expand</b> to show books.`;
-      inner.appendChild(summary);
-    } else if(matchedBooks.length === 0){
+    if(!hasAny){
       const empty = document.createElement("div");
       empty.className = "empty";
-      empty.textContent = "No books found in this category for your current search.";
-      inner.appendChild(empty);
-    } else {
-      const grid = document.createElement("div");
-      grid.className = "grid";
-
-      matchedBooks.forEach(book => {
-        const safeTitle = escapeHtml(book.title || "Untitled");
-        const safeAuthor = escapeHtml(book.author || "Unknown");
-        const safeYear = escapeHtml(book.year || "—");
-        const safePages = escapeHtml(book.pages || "—");
-        const safeFormat = escapeHtml(book.format || "PDF");
-        const safeDesc = escapeHtml(book.note || "Click details for more information.");
-
-        const tagList = (book.tags || []).slice(0,3).map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join("");
-        const hasDownload = book.downloadUrl && book.downloadUrl !== "#";
-        const dlTag = hasDownload
-          ? `<span class="tag ok">✅ Download</span>`
-          : `<span class="tag warn">⚠️ Add link</span>`;
-
-        const detailsUrl = book.detailsUrl || "#";
-        const downloadUrl = book.downloadUrl || "#";
-
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="cover">
-            <div class="cover-inner">
-              <div class="cover-mark">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9a3 3 0 0 1 3 3v15a2 2 0 0 1-2 2H7a3 3 0 0 0-3 3V5a3 3 0 0 1 3-3z"/></svg>
-                <span>${escapeHtml(category.name)}</span>
-              </div>
-              <div class="cover-title">${safeTitle}</div>
-              <div class="cover-author">by ${safeAuthor}</div>
-            </div>
-          </div>
-
-          <div class="body">
-            <div class="meta">
-              <span class="tag">📅 ${safeYear}</span>
-              <span class="tag">📄 ${safePages} pages</span>
-              <span class="tag">📦 ${safeFormat}</span>
-              ${dlTag}
-            </div>
-
-            <div class="desc">${safeDesc}</div>
-
-            <div class="meta">${tagList}</div>
-
-            <div class="actions">
-              <a class="a-btn" href="${detailsUrl}" ${detailsUrl.startsWith("http") ? 'rel="noopener noreferrer"' : ""}>
-                Details
-              </a>
-              <a class="a-btn primary" href="${downloadUrl}" target="${downloadUrl.startsWith("http") ? "_blank" : "_self"}"
-                 rel="noopener noreferrer">
-                Download
-              </a>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      inner.appendChild(grid);
+      empty.textContent = "Coming soon: books will appear here as you add them.";
+      section.appendChild(empty);
+      categoriesRoot.appendChild(section);
+      return;
     }
 
-    section.appendChild(inner);
+    // When filtering yields no match but showEmpty=true, show an empty message
+    if(hasAny && !hasMatch && query.trim()){
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.textContent = "No matching books in this category for your current filters.";
+      section.appendChild(empty);
+      categoriesRoot.appendChild(section);
+      return;
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "grid";
+
+    matched.forEach(book => {
+      shownNow++;
+
+      const safeTitle = escapeHtml(book.title || "Untitled");
+      const safeAuthor = escapeHtml(book.author || "Unknown");
+      const safeYear = escapeHtml(book.year || "—");
+      const safePages = escapeHtml(book.pages || "—");
+      const safeSize = escapeHtml(book.sizeMB || "—");
+      const safeFmt = escapeHtml((book.format || "PDF").toUpperCase());
+      const safeLang = escapeHtml(normalizeLang(book.language));
+
+      const safeDesc = escapeHtml(book.note || "Open details or download.");
+      const tags = (book.tags || []).slice(0,3).map(t => `<span class="tag">#${escapeHtml(t)}</span>`).join("");
+
+      const detailsUrl = book.detailsUrl || "#";
+      const downloadUrl = book.downloadUrl || "#";
+      const hasDownload = downloadUrl && downloadUrl !== "#";
+
+      const card = document.createElement("article");
+      card.className = "card";
+
+      card.innerHTML = `
+        <div class="cover">
+          <div class="cover-inner">
+            <div class="mark">
+              <span>${escapeHtml(book._catName)}</span>
+              ${book.featured ? `<span class="feat">⭐ Featured</span>` : ``}
+            </div>
+            <div>
+              <div class="t1">${safeTitle}</div>
+              <div class="t2">by ${safeAuthor}</div>
+            </div>
+            <div class="meta" style="gap:8px;flex-wrap:wrap;">
+              <span class="tag">${safeFmt}</span>
+              <span class="tag">${safeLang}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="body">
+          <div class="meta">
+            <span class="tag">📅 ${safeYear}</span>
+            <span class="tag">📄 ${safePages} pages</span>
+            <span class="tag">${safeSize === "—" ? "💾 —" : "💾 " + safeSize + " MB"}</span>
+            ${hasDownload ? `<span class="tag ok">✅ Link Ready</span>` : `<span class="tag warn">⚠️ Add Link</span>`}
+          </div>
+
+          <div class="desc">${safeDesc}</div>
+
+          <div class="meta">${tags}</div>
+
+          <div class="actions">
+            <a class="a-btn" href="${detailsUrl}" ${detailsUrl.startsWith("http") ? `rel="noopener noreferrer"` : ""}>
+              Details
+            </a>
+            <a class="a-btn primary" href="${downloadUrl}"
+               target="${downloadUrl.startsWith("http") ? "_blank" : "_self"}"
+               rel="noopener noreferrer">
+              Download
+            </a>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
     categoriesRoot.appendChild(section);
   });
 
-  statShown.textContent = shownCount;
+  statShown.textContent = shownNow;
 }
 
-function clearAll(){
+/* ===========================
+   Events
+   =========================== */
+q.addEventListener("input", renderLibrary);
+categoryFilter.addEventListener("change", renderLibrary);
+formatFilter.addEventListener("change", renderLibrary);
+langFilter.addEventListener("change", renderLibrary);
+
+sortBtn.addEventListener("click", () => {
+  sortMode = (sortMode === "newest") ? "az" : "newest";
+  sortBtn.textContent = (sortMode === "newest") ? "Sort: Newest" : "Sort: A–Z";
+  renderLibrary();
+});
+
+clearBtn.addEventListener("click", () => {
   q.value = "";
   categoryFilter.value = "all";
-  render();
-}
+  formatFilter.value = "all";
+  langFilter.value = "all";
+  sortMode = "newest";
+  sortBtn.textContent = "Sort: Newest";
+  renderLibrary();
+});
 
-q.addEventListener("input", render);
-categoryFilter.addEventListener("change", render);
-clearBtn.addEventListener("click", clearAll);
-
-expandBtn.addEventListener("click", () => {
-  isExpanded = !isExpanded;
-  expandBtn.textContent = isExpanded ? "↕ Expand" : "↕ Collapsed";
-  render();
+/* Show empty toggle */
+emptyToggle.addEventListener("click", () => {
+  showEmpty = !showEmpty;
+  emptyDot.classList.toggle("on", showEmpty);
+  renderLibrary();
 });
 
 /* Mobile menu */
@@ -1337,7 +1634,7 @@ document.addEventListener("click", (e) => {
 /* Back to top */
 const btt = $("btt");
 window.addEventListener("scroll", () => {
-  btt.classList.toggle("show", window.scrollY > 500);
+  btt.classList.toggle("show", window.scrollY > 520);
 },{passive:true});
 btt.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
 
@@ -1345,8 +1642,7 @@ btt.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}))
 $("year").textContent = new Date().getFullYear();
 
 /* Initial render */
-render();
+renderLibrary();
 </script>
-
 </body>
 </html>
